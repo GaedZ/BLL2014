@@ -12,7 +12,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+    if (iOSDeviceScreenSize.height == 480)
+    {
+        // iPhone 4S and iPod Touch 4th generation: 3.5 inch screen
+        // Instantiate a new storyboard object using the storyboard file named MainStoryboard
+        UIStoryboard *iPhoneStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        UIViewController *initialViewController = [iPhoneStoryboard instantiateInitialViewController];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController  = initialViewController;
+        [self.window makeKeyAndVisible];
+    }
+    if (iOSDeviceScreenSize.height == 568)
+    {   // iPhone 5 and iPod Touch 5th generation: 4 inch screen
+        // Instantiate a new storyboard object using the storyboard file named MainStoryboardR4
+        UIStoryboard *iPhoneR4Storyboard = [UIStoryboard storyboardWithName:@"MainR4" bundle:nil];
+        
+        UIViewController *initialViewController = [iPhoneR4Storyboard instantiateInitialViewController];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController  = initialViewController;
+        [self.window makeKeyAndVisible];
+        
+        //Custom Layout
+        [[UINavigationBar appearance] setBarTintColor:[UIColor brownColor]];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                              [UIColor whiteColor],NSForegroundColorAttributeName,
+                                                              [UIFont fontWithName:@"HelveticaNeue" size:21.0],NSBackgroundColorAttributeName,nil]];
+    }
+    
     return YES;
 }
 							

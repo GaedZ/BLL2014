@@ -13,14 +13,27 @@
 		567245E318731433000BB7F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 567245E118731433000BB7F9 /* InfoPlist.strings */; };
 		567245E518731433000BB7F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 567245E418731433000BB7F9 /* main.m */; };
 		567245E918731433000BB7F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 567245E818731433000BB7F9 /* AppDelegate.m */; };
-		567245EC18731433000BB7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567245EA18731433000BB7F9 /* Main.storyboard */; };
-		567245EF18731433000BB7F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 567245EE18731433000BB7F9 /* ViewController.m */; };
-		567245F118731433000BB7F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567245F018731433000BB7F9 /* Images.xcassets */; };
+		567245EC18731433000BB7F9 /* MainR4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567245EA18731433000BB7F9 /* MainR4.storyboard */; };
 		567245F818731433000BB7F9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567245F718731433000BB7F9 /* XCTest.framework */; };
 		567245F918731433000BB7F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567245D818731432000BB7F9 /* Foundation.framework */; };
 		567245FA18731433000BB7F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567245DC18731432000BB7F9 /* UIKit.framework */; };
 		5672460218731433000BB7F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5672460018731433000BB7F9 /* InfoPlist.strings */; };
 		5672460418731433000BB7F9 /* BLL_AbiturTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672460318731433000BB7F9 /* BLL_AbiturTests.m */; };
+		5672460E1873146A000BB7F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5672460D1873146A000BB7F9 /* Images.xcassets */; };
+		5672461118731549000BB7F9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672460F18731549000BB7F9 /* MenuViewController.m */; };
+		5672461418731581000BB7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672461218731581000BB7F9 /* Main.storyboard */; };
+		5672461818731621000BB7F9 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461618731621000BB7F9 /* CreditsViewController.m */; };
+		5672461B187317EF000BB7F9 /* BackgroundUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461A187317EF000BB7F9 /* BackgroundUIView.m */; };
+		5672463118731967000BB7F9 /* Computerplays.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461F18731967000BB7F9 /* Computerplays.m */; };
+		5672463218731967000BB7F9 /* DetailLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462118731967000BB7F9 /* DetailLoadViewController.m */; };
+		5672463318731967000BB7F9 /* Gamedata.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462318731967000BB7F9 /* Gamedata.m */; };
+		5672463418731967000BB7F9 /* Highscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462618731967000BB7F9 /* Highscore.m */; };
+		5672463518731967000BB7F9 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462818731967000BB7F9 /* LoadViewController.m */; };
+		5672463618731967000BB7F9 /* Numberchecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462A18731967000BB7F9 /* Numberchecker.m */; };
+		5672463718731967000BB7F9 /* RulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462C18731967000BB7F9 /* RulesViewController.m */; };
+		5672463818731967000BB7F9 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462E18731967000BB7F9 /* Settings.m */; };
+		5672463918731967000BB7F9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463018731967000BB7F9 /* SettingsViewController.m */; };
+		5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463C18731AA9000BB7F9 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +57,40 @@
 		567245E618731433000BB7F9 /* BLL_Abitur-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLL_Abitur-Prefix.pch"; sourceTree = "<group>"; };
 		567245E718731433000BB7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		567245E818731433000BB7F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		567245EB18731433000BB7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		567245ED18731433000BB7F9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		567245EE18731433000BB7F9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		567245F018731433000BB7F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		567245EB18731433000BB7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainR4.storyboard; sourceTree = "<group>"; };
 		567245F618731433000BB7F9 /* BLL_AbiturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLL_AbiturTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		567245F718731433000BB7F9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		567245FF18731433000BB7F9 /* BLL_AbiturTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLL_AbiturTests-Info.plist"; sourceTree = "<group>"; };
 		5672460118731433000BB7F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5672460318731433000BB7F9 /* BLL_AbiturTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLL_AbiturTests.m; sourceTree = "<group>"; };
+		5672460D1873146A000BB7F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5672460F18731549000BB7F9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		5672461018731549000BB7F9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		5672461218731581000BB7F9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5672461618731621000BB7F9 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		5672461718731621000BB7F9 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		56724619187317EF000BB7F9 /* BackgroundUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundUIView.h; sourceTree = "<group>"; };
+		5672461A187317EF000BB7F9 /* BackgroundUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundUIView.m; sourceTree = "<group>"; };
+		5672461E18731967000BB7F9 /* Computerplays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Computerplays.h; sourceTree = "<group>"; };
+		5672461F18731967000BB7F9 /* Computerplays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Computerplays.m; sourceTree = "<group>"; };
+		5672462018731967000BB7F9 /* DetailLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLoadViewController.h; sourceTree = "<group>"; };
+		5672462118731967000BB7F9 /* DetailLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLoadViewController.m; sourceTree = "<group>"; };
+		5672462218731967000BB7F9 /* Gamedata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gamedata.h; sourceTree = "<group>"; };
+		5672462318731967000BB7F9 /* Gamedata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gamedata.m; sourceTree = "<group>"; };
+		5672462418731967000BB7F9 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		5672462518731967000BB7F9 /* Highscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highscore.h; sourceTree = "<group>"; };
+		5672462618731967000BB7F9 /* Highscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highscore.m; sourceTree = "<group>"; };
+		5672462718731967000BB7F9 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		5672462818731967000BB7F9 /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
+		5672462918731967000BB7F9 /* Numberchecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Numberchecker.h; sourceTree = "<group>"; };
+		5672462A18731967000BB7F9 /* Numberchecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Numberchecker.m; sourceTree = "<group>"; };
+		5672462B18731967000BB7F9 /* RulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesViewController.h; sourceTree = "<group>"; };
+		5672462C18731967000BB7F9 /* RulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesViewController.m; sourceTree = "<group>"; };
+		5672462D18731967000BB7F9 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		5672462E18731967000BB7F9 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		5672462F18731967000BB7F9 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5672463018731967000BB7F9 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5672463C18731AA9000BB7F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +150,12 @@
 		567245DE18731432000BB7F9 /* BLL_Abitur */ = {
 			isa = PBXGroup;
 			children = (
+				5672463B187319CC000BB7F9 /* Model */,
+				5672461D18731920000BB7F9 /* View */,
+				5672463A187319A8000BB7F9 /* Control */,
 				567245E718731433000BB7F9 /* AppDelegate.h */,
 				567245E818731433000BB7F9 /* AppDelegate.m */,
-				567245EA18731433000BB7F9 /* Main.storyboard */,
-				567245ED18731433000BB7F9 /* ViewController.h */,
-				567245EE18731433000BB7F9 /* ViewController.m */,
-				567245F018731433000BB7F9 /* Images.xcassets */,
+				5672460D1873146A000BB7F9 /* Images.xcassets */,
 				567245DF18731433000BB7F9 /* Supporting Files */,
 			);
 			path = BLL_Abitur;
@@ -150,6 +188,55 @@
 				5672460018731433000BB7F9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5672461D18731920000BB7F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56724619187317EF000BB7F9 /* BackgroundUIView.h */,
+				5672461A187317EF000BB7F9 /* BackgroundUIView.m */,
+				5672461218731581000BB7F9 /* Main.storyboard */,
+				567245EA18731433000BB7F9 /* MainR4.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5672463A187319A8000BB7F9 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				5672463C18731AA9000BB7F9 /* GameViewController.m */,
+				5672462418731967000BB7F9 /* GameViewController.h */,
+				5672461018731549000BB7F9 /* MenuViewController.h */,
+				5672460F18731549000BB7F9 /* MenuViewController.m */,
+				5672462F18731967000BB7F9 /* SettingsViewController.h */,
+				5672463018731967000BB7F9 /* SettingsViewController.m */,
+				5672462718731967000BB7F9 /* LoadViewController.h */,
+				5672462818731967000BB7F9 /* LoadViewController.m */,
+				5672462018731967000BB7F9 /* DetailLoadViewController.h */,
+				5672462118731967000BB7F9 /* DetailLoadViewController.m */,
+				5672461618731621000BB7F9 /* CreditsViewController.m */,
+				5672461718731621000BB7F9 /* CreditsViewController.h */,
+				5672462B18731967000BB7F9 /* RulesViewController.h */,
+				5672462C18731967000BB7F9 /* RulesViewController.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		5672463B187319CC000BB7F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5672461E18731967000BB7F9 /* Computerplays.h */,
+				5672461F18731967000BB7F9 /* Computerplays.m */,
+				5672462218731967000BB7F9 /* Gamedata.h */,
+				5672462318731967000BB7F9 /* Gamedata.m */,
+				5672462518731967000BB7F9 /* Highscore.h */,
+				5672462618731967000BB7F9 /* Highscore.m */,
+				5672462918731967000BB7F9 /* Numberchecker.h */,
+				5672462A18731967000BB7F9 /* Numberchecker.m */,
+				5672462D18731967000BB7F9 /* Settings.h */,
+				5672462E18731967000BB7F9 /* Settings.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +315,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				567245F118731433000BB7F9 /* Images.xcassets in Resources */,
+				5672460E1873146A000BB7F9 /* Images.xcassets in Resources */,
 				567245E318731433000BB7F9 /* InfoPlist.strings in Resources */,
-				567245EC18731433000BB7F9 /* Main.storyboard in Resources */,
+				5672461418731581000BB7F9 /* Main.storyboard in Resources */,
+				567245EC18731433000BB7F9 /* MainR4.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +337,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				567245EF18731433000BB7F9 /* ViewController.m in Sources */,
 				567245E918731433000BB7F9 /* AppDelegate.m in Sources */,
+				5672463618731967000BB7F9 /* Numberchecker.m in Sources */,
+				5672463818731967000BB7F9 /* Settings.m in Sources */,
+				5672463318731967000BB7F9 /* Gamedata.m in Sources */,
 				567245E518731433000BB7F9 /* main.m in Sources */,
+				5672463118731967000BB7F9 /* Computerplays.m in Sources */,
+				5672463418731967000BB7F9 /* Highscore.m in Sources */,
+				5672461118731549000BB7F9 /* MenuViewController.m in Sources */,
+				5672461818731621000BB7F9 /* CreditsViewController.m in Sources */,
+				5672463218731967000BB7F9 /* DetailLoadViewController.m in Sources */,
+				5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */,
+				5672463518731967000BB7F9 /* LoadViewController.m in Sources */,
+				5672463718731967000BB7F9 /* RulesViewController.m in Sources */,
+				5672461B187317EF000BB7F9 /* BackgroundUIView.m in Sources */,
+				5672463918731967000BB7F9 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +382,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		567245EA18731433000BB7F9 /* Main.storyboard */ = {
+		567245EA18731433000BB7F9 /* MainR4.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				567245EB18731433000BB7F9 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainR4.storyboard;
 			sourceTree = "<group>";
 		};
 		5672460018731433000BB7F9 /* InfoPlist.strings */ = {
