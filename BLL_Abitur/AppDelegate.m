@@ -22,7 +22,6 @@
         UIViewController *initialViewController = [iPhoneStoryboard instantiateInitialViewController];
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController  = initialViewController;
-        [self.window makeKeyAndVisible];
     }
     if (iOSDeviceScreenSize.height == 568)
     {   // iPhone 5 and iPod Touch 5th generation: 4 inch screen
@@ -32,15 +31,15 @@
         UIViewController *initialViewController = [iPhoneR4Storyboard instantiateInitialViewController];
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController  = initialViewController;
-        [self.window makeKeyAndVisible];
-        
-        //Custom Layout
-        [[UINavigationBar appearance] setBarTintColor:[UIColor brownColor]];
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                              [UIColor whiteColor],NSForegroundColorAttributeName,
-                                                              [UIFont fontWithName:@"HelveticaNeue" size:21.0],NSBackgroundColorAttributeName,nil]];
     }
+    [self.window makeKeyAndVisible];
+    
+    //Custom Layout
+    [[UINavigationBar appearance] setBarTintColor:[UIColor brownColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIColor whiteColor],NSForegroundColorAttributeName,
+                                                          [UIFont fontWithName:@"HelveticaNeue" size:21.0],NSBackgroundColorAttributeName,nil]];
     
     return YES;
 }

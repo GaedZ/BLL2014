@@ -31,11 +31,7 @@
 
 -(void)_init {
     UIImageView *imageView;
-    if ([[self viewController] isMemberOfClass: [CreditsViewController class]]) {
-        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BlackBoard.png"]];
-    } else {
-        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BLL_TafelBG"]];
-    }
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BLL_TafelBG"]];
     [self addSubview:imageView];
     [self sendSubviewToBack:imageView ];
 }

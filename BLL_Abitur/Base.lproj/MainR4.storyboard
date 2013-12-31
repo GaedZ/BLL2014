@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4GN-Iv-gK8">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -154,6 +155,7 @@
                         <color key="backgroundColor" red="0.30588235289999999" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="w4h-6z-MVB"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="barButtonItem" destination="wQC-v8-CCB" id="4h0-JB-l7d"/>
                         <outlet property="navigationBar" destination="y2R-dg-ueo" id="kVU-X7-yk1"/>
@@ -959,6 +961,7 @@
                 <navigationController id="4GN-Iv-gK8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="khz-qi-7uZ"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qcO-yw-6Gg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
