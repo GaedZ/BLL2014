@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="Zbn-cZ-nNb"/>
                         <viewControllerLayoutGuide type="bottom" id="8aQ-tD-a7e"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fM1-AJ-qdQ" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" id="fM1-AJ-qdQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lZW-tS-3gQ" kind="modal" identifier="showAlternate" modalTransitionStyle="flipHorizontal" id="IyU-EJ-pB7"/>
+                                    <segue destination="lZW-tS-3gQ" kind="push" identifier="showAlternate" id="IyU-EJ-pB7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="632" y="-118"/>
         </scene>
-        <!--Credits View Controller-->
+        <!--Credits View Controller - Credits-->
         <scene sceneID="foT-eU-nA9">
             <objects>
                 <viewController id="lZW-tS-3gQ" customClass="CreditsViewController" sceneMemberID="viewController">
@@ -87,22 +87,10 @@
                         <viewControllerLayoutGuide type="top" id="0aW-EN-Dwg"/>
                         <viewControllerLayoutGuide type="bottom" id="qg6-zS-wTi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="InfomationView" id="fYG-oF-Tjf" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="InfomationView" id="fYG-oF-Tjf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2R-dg-ueo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="Yu5-vs-AG2">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" id="wQC-v8-CCB">
-                                            <connections>
-                                                <action selector="done:" destination="lZW-tS-3gQ" id="5Ns-RS-QM2"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Kontakt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAR-ci-OzU">
                                 <rect key="frame" x="55" y="398" width="116" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -154,16 +142,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.30588235289999999" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="w4h-6z-MVB"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <connections>
-                        <outlet property="barButtonItem" destination="wQC-v8-CCB" id="4h0-JB-l7d"/>
-                        <outlet property="navigationBar" destination="y2R-dg-ueo" id="kVU-X7-yk1"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Credits" id="w4h-6z-MVB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYK-1c-tpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="537"/>
+            <point key="canvasLocation" x="1120" y="556"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Ysk-kU-pwv">
@@ -173,7 +156,7 @@
                         <viewControllerLayoutGuide type="top" id="qCF-Qt-uVx"/>
                         <viewControllerLayoutGuide type="bottom" id="jJD-J2-s62"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oQ3-lc-qoo" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" id="oQ3-lc-qoo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -344,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="-118"/>
         </scene>
-        <!--Load View Controller-->
+        <!--Load View Controller - Laden-->
         <scene sceneID="3bA-x5-lU5">
             <objects>
                 <tableViewController id="m5B-lU-iB1" customClass="LoadViewController" sceneMemberID="viewController">
@@ -377,9 +360,7 @@
                             <outlet property="delegate" destination="m5B-lU-iB1" id="8iu-zT-ANi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cV6-T1-QWI">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Laden" id="cV6-T1-QWI"/>
                     <connections>
                         <segue destination="BDy-zV-rYD" kind="push" identifier="showDetailView" id="Sxl-lX-6NM"/>
                         <segue destination="TWI-wV-qaQ" kind="push" identifier="showGameFromLoad" id="5VV-vT-5XY"/>
@@ -389,7 +370,7 @@
             </objects>
             <point key="canvasLocation" x="1120" y="-798"/>
         </scene>
-        <!--Detail Load View Controller-->
+        <!--Detail Load View Controller - Details-->
         <scene sceneID="nDI-Ib-v3Z">
             <objects>
                 <tableViewController id="BDy-zV-rYD" customClass="DetailLoadViewController" sceneMemberID="viewController">
@@ -580,7 +561,7 @@
                             <outlet property="delegate" destination="BDy-zV-rYD" id="oBb-vJ-IPD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kcj-2d-1WV"/>
+                    <navigationItem key="navigationItem" title="Details" id="kcj-2d-1WV"/>
                     <connections>
                         <outlet property="IDLabel" destination="1H7-xP-Ga3" id="iqq-o2-d4U"/>
                         <outlet property="difficultyLabel" destination="mX5-WC-GpU" id="zRF-Iy-r1z"/>
@@ -595,7 +576,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="-798"/>
         </scene>
-        <!--Rules View Controller-->
+        <!--Rules View Controller - Regeln-->
         <scene sceneID="D1e-c5-kTG">
             <objects>
                 <viewController id="Xxs-Bz-2Y1" customClass="RulesViewController" sceneMemberID="viewController">
@@ -603,7 +584,7 @@
                         <viewControllerLayoutGuide type="top" id="jG5-IV-QwB"/>
                         <viewControllerLayoutGuide type="bottom" id="Txp-g1-sIV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Yy-ts-3li" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" id="8Yy-ts-3li">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -618,13 +599,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.30588235289999999" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7py-2R-MCd"/>
+                    <navigationItem key="navigationItem" title="Regeln" id="7py-2R-MCd"/>
+                    <connections>
+                        <outlet property="textView" destination="tdF-jC-quB" id="1lZ-bS-9f1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3k-rS-gFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="632" y="556"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings View Controller - Einstellungen-->
         <scene sceneID="4at-bn-5HO">
             <objects>
                 <tableViewController id="M5z-Af-XCI" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -920,7 +904,7 @@
                             <outlet property="delegate" destination="M5z-Af-XCI" id="kCf-kG-cTc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lYQ-CA-gcc">
+                    <navigationItem key="navigationItem" title="Einstellungen" id="lYQ-CA-gcc">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="qy2-0w-ffD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -986,6 +970,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7VF-TH-yCV"/>
+        <segue reference="5VV-vT-5XY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,7 +23,6 @@
 		5672461118731549000BB7F9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672460F18731549000BB7F9 /* MenuViewController.m */; };
 		5672461418731581000BB7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5672461218731581000BB7F9 /* Main.storyboard */; };
 		5672461818731621000BB7F9 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461618731621000BB7F9 /* CreditsViewController.m */; };
-		5672461B187317EF000BB7F9 /* BackgroundUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461A187317EF000BB7F9 /* BackgroundUIView.m */; };
 		5672463118731967000BB7F9 /* Computerplays.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461F18731967000BB7F9 /* Computerplays.m */; };
 		5672463218731967000BB7F9 /* DetailLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462118731967000BB7F9 /* DetailLoadViewController.m */; };
 		5672463318731967000BB7F9 /* Gamedata.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462318731967000BB7F9 /* Gamedata.m */; };
@@ -69,8 +68,6 @@
 		5672461218731581000BB7F9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5672461618731621000BB7F9 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		5672461718731621000BB7F9 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
-		56724619187317EF000BB7F9 /* BackgroundUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundUIView.h; sourceTree = "<group>"; };
-		5672461A187317EF000BB7F9 /* BackgroundUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundUIView.m; sourceTree = "<group>"; };
 		5672461E18731967000BB7F9 /* Computerplays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Computerplays.h; sourceTree = "<group>"; };
 		5672461F18731967000BB7F9 /* Computerplays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Computerplays.m; sourceTree = "<group>"; };
 		5672462018731967000BB7F9 /* DetailLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLoadViewController.h; sourceTree = "<group>"; };
@@ -193,8 +190,6 @@
 		5672461D18731920000BB7F9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56724619187317EF000BB7F9 /* BackgroundUIView.h */,
-				5672461A187317EF000BB7F9 /* BackgroundUIView.m */,
 				5672461218731581000BB7F9 /* Main.storyboard */,
 				567245EA18731433000BB7F9 /* MainR4.storyboard */,
 			);
@@ -204,8 +199,8 @@
 		5672463A187319A8000BB7F9 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				5672463C18731AA9000BB7F9 /* GameViewController.m */,
 				5672462418731967000BB7F9 /* GameViewController.h */,
+				5672463C18731AA9000BB7F9 /* GameViewController.m */,
 				5672461018731549000BB7F9 /* MenuViewController.h */,
 				5672460F18731549000BB7F9 /* MenuViewController.m */,
 				5672462F18731967000BB7F9 /* SettingsViewController.h */,
@@ -350,7 +345,6 @@
 				5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */,
 				5672463518731967000BB7F9 /* LoadViewController.m in Sources */,
 				5672463718731967000BB7F9 /* RulesViewController.m in Sources */,
-				5672461B187317EF000BB7F9 /* BackgroundUIView.m in Sources */,
 				5672463918731967000BB7F9 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

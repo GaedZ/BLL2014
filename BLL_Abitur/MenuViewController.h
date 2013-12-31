@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CreditsViewController.h"
 
-@interface MenuViewController : UIViewController <CreditsViewControllerDelegate>
-
+@interface MenuViewController : UIViewController
 @end

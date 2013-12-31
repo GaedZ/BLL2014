@@ -26,12 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    UIImageView *imageView;
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BLL_TafelBG"]];
-    [self.textView addSubview:imageView];
-    [self.textView sendSubviewToBack:imageView ];
-
+    
+    _textView.textAlignment = NSTextAlignmentJustified;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,7 +36,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
 @end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Rd-Yw-zM6">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="neB-v7-Cw0"/>
                         <viewControllerLayoutGuide type="bottom" id="98W-9i-0n4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ufd-N7-QU1" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" id="Ufd-N7-QU1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RpD-gN-g2I" kind="modal" identifier="showAlternate" modalTransitionStyle="flipHorizontal" id="r7m-Nx-EFR"/>
+                                    <segue destination="RpD-gN-g2I" kind="push" identifier="showAlternate" id="r7m-Nx-EFR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="632" y="-118"/>
         </scene>
-        <!--Credits View Controller-->
+        <!--Credits View Controller - Credits-->
         <scene sceneID="vni-fC-aXo">
             <objects>
                 <viewController id="RpD-gN-g2I" customClass="CreditsViewController" sceneMemberID="viewController">
@@ -87,22 +87,10 @@
                         <viewControllerLayoutGuide type="top" id="65L-cE-2Hw"/>
                         <viewControllerLayoutGuide type="bottom" id="ezq-JA-y39"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="InfomationView" id="gyx-ot-759" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="InfomationView" id="gyx-ot-759">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XnW-Q4-eB1">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="KEU-2R-h68">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" id="5NE-Fd-Wrm">
-                                            <connections>
-                                                <action selector="done:" destination="RpD-gN-g2I" id="zF0-if-aRU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Kontakt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSQ-O5-MvG">
                                 <rect key="frame" x="55" y="333" width="116" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -154,11 +142,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.30588235289999999" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mJA-IA-Edv"/>
-                    <connections>
-                        <outlet property="barButtonItem" destination="5NE-Fd-Wrm" id="8uX-WP-Ocz"/>
-                        <outlet property="navigationBar" destination="XnW-Q4-eB1" id="4gg-qg-Gnq"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Credits" id="mJA-IA-Edv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIg-Sf-2Y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,20 +156,20 @@
                         <viewControllerLayoutGuide type="top" id="DM0-yi-5eC"/>
                         <viewControllerLayoutGuide type="bottom" id="Q1t-i3-tbP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yL2-Hm-o5f" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" id="yL2-Hm-o5f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVe-Oq-dkN">
-                                <rect key="frame" x="20" y="353" width="286" height="145"/>
+                                <rect key="frame" x="12" y="270" width="298" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-5L-SIs">
-                                <rect key="frame" x="46" y="11" width="239" height="34"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-5L-SIs">
+                                <rect key="frame" x="46" y="77" width="229" height="43"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -200,7 +184,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSR-Xe-shc">
-                                <rect key="frame" x="-2" y="218" width="157" height="44"/>
+                                <rect key="frame" x="-9" y="206" width="157" height="44"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="27"/>
                                 <state key="normal" title=" î Vorne">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,10 +194,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0f-Fz-w7U">
-                                <rect key="frame" x="46" y="77" width="239" height="60"/>
+                                <rect key="frame" x="45" y="135" width="230" height="60"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-Bo-sMj">
-                                        <rect key="frame" x="-231" y="-1" width="700" height="62"/>
+                                        <rect key="frame" x="-235" y="-1" width="700" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -222,22 +206,22 @@
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cs-1u-7OA">
-                                <rect key="frame" x="170" y="218" width="150" height="44"/>
+                                <rect key="frame" x="170" y="206" width="150" height="44"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="27"/>
                                 <state key="normal" title="Hinten î"/>
                                 <connections>
                                     <action selector="pushedButton:" destination="qLP-YG-vRl" eventType="touchUpInside" id="ECp-fM-eQ0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5P-ST-Qer">
-                                <rect key="frame" x="271" y="68" width="35" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5P-ST-Qer">
+                                <rect key="frame" x="275" y="136" width="35" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="45"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pB6-uj-QLN">
-                                <rect key="frame" x="14" y="68" width="35" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pB6-uj-QLN">
+                                <rect key="frame" x="12" y="136" width="35" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="45"/>
@@ -251,70 +235,70 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- - - - - - - - - - - - - - - - -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbV-jv-nr5">
-                                <rect key="frame" x="0.0" y="127" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="190" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- - - - - - - - - - - - - - - - -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJM-fQ-bGu">
-                                <rect key="frame" x="3" y="225" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="241" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="||" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="8" translatesAutoresizingMaskIntoConstraints="NO" id="xTJ-9e-jFH">
-                                <rect key="frame" x="156" y="141" width="8" height="48"/>
+                                <rect key="frame" x="156" y="204" width="8" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwT-M0-UKm">
-                                <rect key="frame" x="82" y="361" width="167" height="24"/>
+                                <rect key="frame" x="84" y="281" width="167" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leicht" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5a-7a-lnp">
-                                <rect key="frame" x="44" y="401" width="64" height="21"/>
+                                <rect key="frame" x="46" y="321" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mittel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsD-GY-fyC">
-                                <rect key="frame" x="44" y="430" width="64" height="21"/>
+                                <rect key="frame" x="46" y="350" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schwer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3W4-7V-hHs">
-                                <rect key="frame" x="44" y="459" width="69" height="21"/>
+                                <rect key="frame" x="46" y="379" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is0-86-jzG">
-                                <rect key="frame" x="241" y="401" width="42" height="21"/>
+                                <rect key="frame" x="243" y="321" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQ2-iT-J8B">
-                                <rect key="frame" x="241" y="430" width="42" height="21"/>
+                                <rect key="frame" x="243" y="350" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-41-93d">
-                                <rect key="frame" x="241" y="459" width="42" height="21"/>
+                                <rect key="frame" x="243" y="379" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -343,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="-118"/>
         </scene>
-        <!--Load View Controller-->
+        <!--Load View Controller - Laden-->
         <scene sceneID="nNQ-MU-6Zc">
             <objects>
                 <tableViewController id="4kL-Co-i0r" customClass="LoadViewController" sceneMemberID="viewController">
@@ -376,9 +360,7 @@
                             <outlet property="delegate" destination="4kL-Co-i0r" id="18V-KW-oQJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sAa-u0-FS1">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Laden" id="sAa-u0-FS1"/>
                     <connections>
                         <segue destination="fp5-Rk-6aU" kind="push" identifier="showDetailView" id="xgL-pZ-ILi"/>
                         <segue destination="qLP-YG-vRl" kind="push" identifier="showGameFromLoad" id="Kr7-Ih-6zp"/>
@@ -388,7 +370,7 @@
             </objects>
             <point key="canvasLocation" x="1120" y="-798"/>
         </scene>
-        <!--Detail Load View Controller-->
+        <!--Detail Load View Controller - Details-->
         <scene sceneID="Mxn-1W-aEM">
             <objects>
                 <tableViewController id="fp5-Rk-6aU" customClass="DetailLoadViewController" sceneMemberID="viewController">
@@ -579,7 +561,7 @@
                             <outlet property="delegate" destination="fp5-Rk-6aU" id="r5K-AJ-M3V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aOW-0V-jXk"/>
+                    <navigationItem key="navigationItem" title="Details" id="aOW-0V-jXk"/>
                     <connections>
                         <outlet property="IDLabel" destination="AG1-Q4-rBC" id="gAn-IH-hrj"/>
                         <outlet property="difficultyLabel" destination="1Jl-ZD-WPh" id="maw-N5-yVD"/>
@@ -594,7 +576,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="-798"/>
         </scene>
-        <!--Rules View Controller-->
+        <!--Rules View Controller - Regeln-->
         <scene sceneID="jSu-XS-Zed">
             <objects>
                 <viewController id="hzz-GJ-PpM" customClass="RulesViewController" sceneMemberID="viewController">
@@ -602,7 +584,7 @@
                         <viewControllerLayoutGuide type="top" id="Kx8-2c-532"/>
                         <viewControllerLayoutGuide type="bottom" id="Nod-gg-pds"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gyD-Q2-bkD" customClass="BackgroundUIView">
+                    <view key="view" contentMode="scaleToFill" id="gyD-Q2-bkD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -617,13 +599,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.30588235289999999" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="S8K-iJ-DCW"/>
+                    <navigationItem key="navigationItem" title="Regeln" id="S8K-iJ-DCW"/>
+                    <connections>
+                        <outlet property="textView" destination="TDY-OL-vu2" id="lI5-er-kes"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWr-gR-8Ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="632" y="537"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings View Controller - Einstellungen-->
         <scene sceneID="Bg6-ic-h8f">
             <objects>
                 <tableViewController id="4YZ-BJ-LMY" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -919,7 +904,7 @@
                             <outlet property="delegate" destination="4YZ-BJ-LMY" id="2YR-qs-upz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SY5-45-mfH">
+                    <navigationItem key="navigationItem" title="Einstellungen" id="SY5-45-mfH">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="DTn-ww-NjQ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -984,6 +969,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="o2Z-ih-CL4"/>
+        <segue reference="Kr7-Ih-6zp"/>
     </inferredMetricsTieBreakers>
 </document>
