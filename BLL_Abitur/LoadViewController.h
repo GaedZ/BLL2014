@@ -13,6 +13,6 @@
 
 @interface LoadViewController : UITableViewController
 
-@property(nonatomic, retain) Gamedata *loadGamedata;
+@property(nonatomic, retain) Gamedata *gamedata;
 
 @end

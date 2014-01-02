@@ -55,24 +55,24 @@
 #pragma mark
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    self.loadGamedata = [Gamedata loadGamedataWithKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+    self.gamedata = [Gamedata loadGamedataWithKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
     [self performSegueWithIdentifier:@"showDetailView" sender:self];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.loadGamedata = [Gamedata loadGamedataWithKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+    self.gamedata = [Gamedata loadGamedataWithKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
     [self performSegueWithIdentifier:@"showGameFromLoad" sender:self];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if (sender == self) {
         if ([[segue identifier]isEqualToString:@"showGameFromLoad"]) {
             GameViewController *currentGameViewController = (GameViewController *)segue.destinationViewController;
-            currentGameViewController.gamedata = self.loadGamedata;
+            currentGameViewController.gamedata = self.gamedata;
             //currentGameViewController.navigationItem.hidesBackButton = YES;
         }
         if ([[segue identifier]isEqualToString:@"showDetailView"]) {
             DetailLoadViewController *viewController = (DetailLoadViewController*)segue.destinationViewController;
-            viewController.gamedata = self.loadGamedata;
+            viewController.gamedata = self.gamedata;
         }
     }
 }
@@ -92,8 +92,11 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
         Gamedata *toBeDeletedData = [Gamedata loadGamedataWithKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+        
         [toBeDeletedData deleteData];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {

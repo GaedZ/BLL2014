@@ -8,41 +8,63 @@
 
 #import "GameViewController.h"
 #import "MenuViewController.h"
+#import "Highscore.h"
 
 @implementation GameViewController
-{
-    NSDictionary *Highscores;
-}
 
 # pragma mark
 -(void)viewDidLoad {
     
-    [self.numberLabel setText:self.gamedata.gamingInfo.number];
+    //Set up Highscore Labels
+    {
+        Highscore *highscore = [[NSUserDefaults standardUserDefaults] objectForKey:@"Highscores"];
+        
+        switch (self.gamedata.settings.mode) {
+            case Power2:
+                self.easyLabel.text = [highscore.Power2 objectAtIndex:Easy];
+                self.mediumLabel.text = [highscore.Power2 objectAtIndex:Medium];
+                self.hardLabel.text = [highscore.Power2 objectAtIndex:Hard];
+                break;
+            case Power3:
+                self.easyLabel.text = [highscore.Power2 objectAtIndex:Easy];
+                self.mediumLabel.text = [highscore.Power2 objectAtIndex:Medium];
+                self.hardLabel.text = [highscore.Power2 objectAtIndex:Hard];
+                break;
+            case Power4:
+                self.easyLabel.text = [highscore.Power2 objectAtIndex:Easy];
+                self.mediumLabel.text = [highscore.Power2 objectAtIndex:Medium];
+                self.hardLabel.text = [highscore.Power2 objectAtIndex:Hard];
+                break;
+            default:
+                break;
+        }
+    }
+    
+    //Set up numberLabel
+    [self.numberLabel setText:@""];
+    if (self.gamedata.gamingInfo.number != nil)
+        [self.numberLabel setText:self.gamedata.gamingInfo.number];
 
+    //Set up both TextFields
+    {
     self.hintenTextField.delegate = self;
     self.vorneTextField.delegate = self;
     self.vorneTextField.text = @"";
     self.hintenTextField.text = @"";
+    }
     
+    //Hide NavigationButton and set up Scrollview
+    {
     self.navigationItem.hidesBackButton = YES;
-
-    self.scrollView.contentSize = CGSizeMake(_numberLabel.frame.size.width, self.scrollView.contentSize.height);
+    self.scrollView.contentSize = CGSizeMake(self.numberLabel.frame.size.width, self.scrollView.contentSize.height);
+    }
     
+    //Check whether its the Computers turn to place the first number
     if (self.gamedata.settings.difficulty != PvP &&
         self.gamedata.settings.perspective == WINNER &&
         self.gamedata.gamingInfo.turn == 0)
     {
-        _statusLabel.text = @"Computer denkt nach";
-        
-         for (UIButton *buItem in _ActionButtons) {
-             buItem.enabled = NO;}
-        _numberLabel.text = @"7";
-        _gamedata.gamingInfo.turn++;
-        for (UIButton *buItem in _ActionButtons) {
-            buItem.enabled = YES;}
- 
-        _statusLabel.text = @"Du bist am Zug";
-        
+        [self putComputersNumber];
     }
 }
 
@@ -57,7 +79,7 @@
                 [self.ActionButtons[0] setTitle: @"  Chancel" forState:UIControlStateNormal];
                 [self.ActionButtons[1] setTitle:@" Done" forState:UIControlStateNormal];
                 [self.vorneTextField becomeFirstResponder];
-                for (UIButton *buItem in _ActionButtons) {
+                for (UIButton *buItem in self.ActionButtons) {
                     buItem.tag = StateTwo;}
             }
             else if ([sender.titleLabel.text isEqualToString:@"Hinten î"]){
@@ -65,37 +87,37 @@
                 [self.ActionButtons[0] setTitle: @"  Chancel" forState:UIControlStateNormal];
                 [self.ActionButtons[1] setTitle:@" Done" forState:UIControlStateNormal];
                 [self.hintenTextField becomeFirstResponder];
-                for (UIButton *buItem in _ActionButtons) {
+                for (UIButton *buItem in self.ActionButtons) {
                     buItem.tag = StateTwo;}
             }
         break;
         case StateTwo:
         {
             if ([sender.titleLabel.text isEqualToString:@" Done"]){
-                if ([_vorneTextField.text isEqualToString: @""] && [_hintenTextField.text isEqualToString: @""]) {
+                if ([self.vorneTextField.text isEqualToString: @""] && [self.hintenTextField.text isEqualToString: @""]) {
                     [self showErrorbox];
                 }
                 else
                 {
                     [self putPlayersNumber];
-                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[_numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
+                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
                         [self showEndbox];
                     }
-                    _gamedata.gamingInfo.turn++;
+                    self.gamedata.gamingInfo.turn++;
 
                     
                     if (self.gamedata.settings.difficulty != PvP){
                     [self putComputersNumber];
-                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[_numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
+                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
                         [self showEndbox];
                     }
-                    _gamedata.gamingInfo.turn++;
+                    self.gamedata.gamingInfo.turn++;
                     }
                     if (self.gamedata.settings.difficulty == PvP){
-                        if (_gamedata.gamingInfo.turn % 2 == 0)
-                            [_statusLabel setText:@"Spieler 1 am Zug"];
-                        else if (_gamedata.gamingInfo.turn % 2 == 1)
-                            [_statusLabel setText:@"Spieler 2 am Zug"];
+                        if (self.gamedata.gamingInfo.turn % 2 == 0)
+                            [self.statusLabel setText:@"Spieler 1 am Zug"];
+                        else if (self.gamedata.gamingInfo.turn % 2 == 1)
+                            [self.statusLabel setText:@"Spieler 2 am Zug"];
                     }
 
                     
@@ -112,27 +134,23 @@
 }
 - (void)putPlayersNumber{
     if (self.vorneTextField.enabled)
-        [self.numberLabel setText:[self.vorneTextField.text stringByAppendingString:_numberLabel.text]];
+        [self.numberLabel setText:[self.vorneTextField.text stringByAppendingString:self.numberLabel.text]];
     if (self.hintenTextField.enabled)
-        [self.numberLabel setText:[_numberLabel.text stringByAppendingString: self.hintenTextField.text]];
+        [self.numberLabel setText:[self.numberLabel.text stringByAppendingString: self.hintenTextField.text]];
 }
 - (void)putComputersNumber{
-    
-    for (UIButton *buItem in _ActionButtons) {
+    for (UIButton *buItem in self.ActionButtons) {
         buItem.enabled = NO;}
     [UIView animateWithDuration:1.0
                      animations:^{
-                         _statusLabel.alpha = 0.0f;
-                         _statusLabel.text = @"Computer denkt nach";
-                         _statusLabel.alpha = 2.0f;
+                         self.statusLabel.alpha = 0.0f;
+                         self.statusLabel.text = @"Computer denkt nach";
+                         self.statusLabel.alpha = 2.0f;
                      }];
-    [self.numberLabel setText: [Computerplays playGameWithAI:   self.gamedata.settings.difficulty
-                                           Perspective:         self.gamedata.settings.perspective
-                                               andMode:         self.gamedata.settings.mode
-                                        usingTheNumber:         _numberLabel.text]];
-    for (UIButton *buItem in _ActionButtons) {
+    [self.numberLabel setText: [Computerplays playGameWithSettings:self.gamedata.settings usingTheNumber:self.numberLabel.text]];
+    for (UIButton *buItem in self.ActionButtons) {
         buItem.enabled = YES;}
-//    _statusLabel.text = @"Du bist dran!";
+    self.statusLabel.text = @"Du bist dran!";
 }
 - (void)prepareDefaultState{
     [self.hintenTextField resignFirstResponder];
@@ -143,13 +161,13 @@
     self.hintenTextField.text = @"";
     self.vorneTextField.enabled = FALSE;
     self.hintenTextField.enabled = FALSE;
-    for (UIButton *buItem in _ActionButtons) {
+    for (UIButton *buItem in self.ActionButtons) {
         buItem.tag = StateOne;}
 }
 - (void)resetField{
-    _gamedata.gamingInfo.turn = 0;
-    _numberLabel.text = @"";
-    _statusLabel.text = @"Spieler 1 am Zug";
+    self.gamedata.gamingInfo.turn = 0;
+    self.numberLabel.text = @"";
+    self.statusLabel.text = @"Spieler 1 am Zug";
 }
 
 #pragma mark
@@ -178,7 +196,7 @@
         [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
   
     }
-    _gamedata = nil;
+    self.gamedata = nil;
 }
 
 #pragma mark
@@ -266,7 +284,7 @@
 - (void)hideText{
     [UIView beginAnimations:@"fadeOutText" context:NULL];
     [UIView setAnimationDuration:1.0];
-    _statusLabel.alpha = 0.0f;
+    self.statusLabel.alpha = 0.0f;
     [UIView commitAnimations];
     [NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
@@ -277,7 +295,7 @@
 - (void)showText{
     [UIView beginAnimations:@"fadeInText" context:NULL];
     [UIView setAnimationDuration:1.0];
-    _statusLabel.alpha = 1.0f;
+    self.statusLabel.alpha = 1.0f;
     [UIView commitAnimations];
 }
 - (NSString*)stringForDate:(NSDate*)date
@@ -292,7 +310,7 @@
     Gamedata *preparedData = [[Gamedata alloc]initDefault];
     preparedData.settings = self.gamedata.settings;
     preparedData.gamingInfo.number = self.numberLabel.text;
-    preparedData.gamingInfo.turn = _gamedata.gamingInfo.turn;
+    preparedData.gamingInfo.turn = self.gamedata.gamingInfo.turn;
     preparedData.gamingInfo.lastSaved = [NSDate date];
     return preparedData;
 }

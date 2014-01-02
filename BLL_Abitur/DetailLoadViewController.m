@@ -24,9 +24,9 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    self.navigationItem.title = self.gamedata.pointer;
+    self.title = self.gamedata.pointer;
     //Basis Info
-    [self.NumberCell.detailTextLabel setText: self.gamedata.pointer];
+    [self.NumberCell.detailTextLabel setText: self.gamedata.gamingInfo.number];
     [self.turnCell.detailTextLabel setText:[NSString stringWithFormat:@"%i", self.gamedata.gamingInfo.turn]];
     [self fillLastSavedLabel];
     //Einstellungen
@@ -59,7 +59,7 @@
         case Easy:
             [self.difficultyCell.detailTextLabel setText:@"Leicht"];
             break;
-        case Intermediate:
+        case Medium:
             [self.difficultyCell.detailTextLabel setText:@"Mittel"];
             break;
         case Hard:

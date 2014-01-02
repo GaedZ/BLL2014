@@ -7,24 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CustomNSObject.h"
 
-#pragma mark Konstanten Typedefs
-typedef enum{
-    Power2 = 0,
-    Power3,
-    Power4
-}Mode;
-typedef enum{
-    PvP = 0,
-    Easy,
-    Intermediate,
-    Hard
-}Difficulty;
-typedef enum {SCORER, WINNER} Perspective;
 
-#pragma mark
-
-@interface Settings : NSObject
+@interface Settings : CustomNSObject
 
 @property(nonatomic,readwrite) Difficulty difficulty;
 @property(nonatomic,readwrite) Mode mode;

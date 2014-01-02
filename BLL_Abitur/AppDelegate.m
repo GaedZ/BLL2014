@@ -7,33 +7,39 @@
 //
 
 #import "AppDelegate.h"
+#import "Highscore.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ListOfGames"] == Nil) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ListOfGames"] == nil) {
         NSMutableDictionary *list = [NSMutableDictionary new];
         [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"ListOfGames"];
     }
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Highscores"] == nil) {
+//        Highscore *highscore = [[Highscore alloc] initDefault];
+//        [[NSUserDefaults standardUserDefaults] setObject:highscore forKey:@"Highscores"];
+//    }
     
     CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-    if (iOSDeviceScreenSize.height == 480)
-    {
-        // iPhone 4S and iPod Touch 4th generation: 3.5 inch screen
-        // Instantiate a new storyboard object using the storyboard file named MainStoryboard
-        UIStoryboard *iPhoneStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        UIViewController *initialViewController = [iPhoneStoryboard instantiateInitialViewController];
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.window.rootViewController  = initialViewController;
-    }
+    
     if (iOSDeviceScreenSize.height == 568)
     {   // iPhone 5 and iPod Touch 5th generation: 4 inch screen
         // Instantiate a new storyboard object using the storyboard file named MainStoryboardR4
         UIStoryboard *iPhoneR4Storyboard = [UIStoryboard storyboardWithName:@"MainR4" bundle:nil];
         
         UIViewController *initialViewController = [iPhoneR4Storyboard instantiateInitialViewController];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController  = initialViewController;
+    }
+    else
+    {
+        // iPhone 4S and iPod Touch 4th generation: 3.5 inch screen
+        // Instantiate a new storyboard object using the storyboard file named MainStoryboard
+        UIStoryboard *iPhoneStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        UIViewController *initialViewController = [iPhoneStoryboard instantiateInitialViewController];
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController  = initialViewController;
     }

@@ -8,26 +8,37 @@
 
 #import "Computerplays.h"
 
+@interface Computerplays ()
+
++ (NSString*)makeRandomMoveUsingTheNumber:(NSString*)number;
++ (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number withMode:(Mode)currentMode andPerspective:(Perspective)perspective;
+
++ (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower2UsingThePerspective:(Perspective)finalPerspective;
++ (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower3UsingThePerspective:(Perspective)finalPerspective;
++ (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower4UsingThePerspective:(Perspective)finalPerspective;
+
+@end
+
 @implementation Computerplays
 
-+ (NSString*)playGameWithAI:(Difficulty)currentDifficulty Perspective:(Perspective)currentPerspective andMode:(Mode)currentMode usingTheNumber:(NSString*)number;
++ (NSString*)playGameWithSettings:(Settings *)settings usingTheNumber:(NSString *)number
 {
-    switch (currentDifficulty) {
+    switch (settings.difficulty) {
         case Easy:
             number = [self makeRandomMoveUsingTheNumber: number];
             break;
-        case Intermediate:
+        case Medium:
             {
             srand (time(NULL));
             BOOL randomlySkilledMove  = rand() %  2;
             if (randomlySkilledMove)
                 number = [self makeRandomMoveUsingTheNumber: number];
             else
-                number = [self makeSkilledMoveUsingTheNumber:number withMode:currentMode andPerspective:currentPerspective];
+                number = [self makeSkilledMoveUsingTheNumber:number withMode:settings.mode andPerspective:settings.perspective];
         }
             break;
         case Hard:
-            number = [self makeSkilledMoveUsingTheNumber:number withMode:currentMode andPerspective:currentPerspective];
+            number = [self makeSkilledMoveUsingTheNumber:number withMode:settings.mode andPerspective:settings.perspective];
             break;
         default:
             break;
@@ -49,17 +60,17 @@
     }
     return number;
 }
-+ (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number withMode:(Mode)currentMode andPerspective:(Perspective)currentPerpective
++ (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number withMode:(Mode)mode andPerspective:(Perspective)perspective
 {
-    switch (currentMode) {
+    switch (mode) {
         case Power2:
-            return [self makeSkilledMoveUsingTheNumber:number andPower2UsingThePerspective:currentPerpective];
+            return [self makeSkilledMoveUsingTheNumber:number andPower2UsingThePerspective:perspective];
             break;
         case Power3:
-            return [self makeSkilledMoveUsingTheNumber:number andPower3UsingThePerspective:currentPerpective];
+            return [self makeSkilledMoveUsingTheNumber:number andPower3UsingThePerspective:perspective];
             break;
         case Power4:
-            return [self makeSkilledMoveUsingTheNumber:number andPower4UsingThePerspective:currentPerpective];
+            return [self makeSkilledMoveUsingTheNumber:number andPower4UsingThePerspective:perspective];
             break;
         default:
             break;

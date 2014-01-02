@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CustomNSObject.h"
 
-@interface Highscore : NSObject
+@interface Highscore : CustomNSObject
 
-//@property(nonatomic) int score;
-//@property(nonatomic)
+@property(nonatomic) NSArray *Power2;
+@property(nonatomic) NSArray *Power3;
+@property(nonatomic) NSArray *Power4;
+
+-(id)initDefault;
 
 @end

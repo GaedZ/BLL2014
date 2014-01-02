@@ -14,6 +14,7 @@
     if (self) {
         self.gamingInfo = [[GamingInfo alloc]initDefault];
         self.settings = [[Settings alloc]initDefault];
+        self.pointer = nil;
     }
     return self;
 }
@@ -25,12 +26,14 @@
     if (self = [super init]) {
         self.gamingInfo = [decoder decodeObjectForKey:@"GamingInfo"];
         self.settings = [decoder decodeObjectForKey:    @"Settings"];
+        self.pointer = [decoder decodeObjectForKey: @"Pointer"];
     }
     return self;
 }
 - (void) encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.gamingInfo forKey:@"GamingInfo"];
     [encoder encodeObject:self.settings forKey: @"Settings"];
+    [encoder encodeObject:self.pointer forKey:@"Pointer"];
 }
 
 #pragma mark
@@ -67,6 +70,7 @@
 - (void)deleteData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *list = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
+    
     [list removeObjectForKey:self.pointer];
     [defaults setObject:list forKey:@"ListOfGames"];
     [defaults synchronize];

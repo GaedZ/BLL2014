@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CustomNSObject.h"
 
 #import "GamingInfo.h"
 #import "Settings.h"
 
 
-@interface Gamedata : NSObject <NSCoding,UIAlertViewDelegate>
+@interface Gamedata: CustomNSObject <NSCoding,UIAlertViewDelegate>
 
 @property(nonatomic) Settings* settings;
 @property(nonatomic) GamingInfo* gamingInfo;

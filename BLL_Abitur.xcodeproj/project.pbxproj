@@ -34,6 +34,7 @@
 		5672463918731967000BB7F9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463018731967000BB7F9 /* SettingsViewController.m */; };
 		5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463C18731AA9000BB7F9 /* GameViewController.m */; };
 		5672468A1875866D000BB7F9 /* GamingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246891875866D000BB7F9 /* GamingInfo.m */; };
+		567246911875CBDC000BB7F9 /* CustomNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246901875CBDC000BB7F9 /* CustomNSObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		5672463C18731AA9000BB7F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		567246881875866D000BB7F9 /* GamingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamingInfo.h; sourceTree = "<group>"; };
 		567246891875866D000BB7F9 /* GamingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamingInfo.m; sourceTree = "<group>"; };
+		5672468F1875CBDC000BB7F9 /* CustomNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNSObject.h; sourceTree = "<group>"; };
+		567246901875CBDC000BB7F9 /* CustomNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNSObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,8 @@
 		5672468B1875868F000BB7F9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5672468F1875CBDC000BB7F9 /* CustomNSObject.h */,
+				567246901875CBDC000BB7F9 /* CustomNSObject.m */,
 				5672462518731967000BB7F9 /* Highscore.h */,
 				5672462618731967000BB7F9 /* Highscore.m */,
 				5672468D187586FF000BB7F9 /* Gamedata */,
@@ -373,6 +378,7 @@
 				5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */,
 				5672463518731967000BB7F9 /* LoadViewController.m in Sources */,
 				5672463718731967000BB7F9 /* RulesViewController.m in Sources */,
+				567246911875CBDC000BB7F9 /* CustomNSObject.m in Sources */,
 				5672463918731967000BB7F9 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
