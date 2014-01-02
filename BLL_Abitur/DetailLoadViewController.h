@@ -11,19 +11,19 @@
 
 @interface DetailLoadViewController : UITableViewController <UITableViewDelegate>
 
-@property (nonatomic, retain) Gamedata *detailGamedata;
+@property (nonatomic, retain) Gamedata *gamedata;
 
 #pragma mark
 #pragma mark Basis Info
-@property (weak, nonatomic) IBOutlet UITableViewCell *IDLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *lastSavedLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *turnLabel;
+@property (weak, nonatomic) IBOutlet UITableViewCell *NumberCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *lastSavedCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *turnCell;
 
 #pragma mark Einstellungen
-@property (weak, nonatomic) IBOutlet UITableViewCell *difficultyLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *modeLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *perspectiveLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *saveTypeLabel;
+@property (weak, nonatomic) IBOutlet UITableViewCell *difficultyCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *modeCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *perspectiveCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *saveTypeCell;
 
     
 @end

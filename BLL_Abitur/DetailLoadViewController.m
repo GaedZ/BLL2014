@@ -23,26 +23,19 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
-        
+    
+    self.navigationItem.title = self.gamedata.pointer;
     //Basis Info
-    [self.IDLabel.detailTextLabel setText: _detailGamedata.name];
-    [self.turnLabel.detailTextLabel setText:[NSString stringWithFormat:@"%i", _detailGamedata.turn]];
+    [self.NumberCell.detailTextLabel setText: self.gamedata.pointer];
+    [self.turnCell.detailTextLabel setText:[NSString stringWithFormat:@"%i", self.gamedata.gamingInfo.turn]];
     [self fillLastSavedLabel];
     //Einstellungen
-    [self fillDifficultyLabel];
-    [self fillModeLabel];
-    [self fillPerpectiveLabel];
-    [self fillSaveTypeLabel];
+    [self fillDifficultyCell];
+    [self fillModeCell];
+    [self fillPerpectiveCell];
+    [self fillSaveTypeCell];
 }
--(NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section == 0) {
-        return _detailGamedata.number;
-    }
-    else
-    {
-        return nil;
-    }
-}
+
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,60 +48,60 @@
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [self.lastSavedLabel.detailTextLabel setText:[dateFormatter stringFromDate:_detailGamedata.lastSaved]];
+    [self.lastSavedCell.detailTextLabel setText:[dateFormatter stringFromDate:self.gamedata.gamingInfo.lastSaved]];
 }
 
-- (void)fillDifficultyLabel{
-    switch (self.detailGamedata.usedSettings.currentDifficulty) {
+- (void)fillDifficultyCell{
+    switch (self.gamedata.settings.difficulty) {
         case PvP:
-            [self.difficultyLabel.detailTextLabel setText:@"Spieler gegen Spieler"];
+            [self.difficultyCell.detailTextLabel setText:@"Spieler gegen Spieler"];
             break;
         case Easy:
-            [self.difficultyLabel.detailTextLabel setText:@"Leicht"];
+            [self.difficultyCell.detailTextLabel setText:@"Leicht"];
             break;
         case Intermediate:
-            [self.difficultyLabel.detailTextLabel setText:@"Mittel"];
+            [self.difficultyCell.detailTextLabel setText:@"Mittel"];
             break;
         case Hard:
-            [self.difficultyLabel.detailTextLabel setText:@"Schwer"];
+            [self.difficultyCell.detailTextLabel setText:@"Schwer"];
             break;
         default:
             break;
     }
 }
-- (void)fillModeLabel{
-    switch (self.detailGamedata.usedSettings.currentMode) {
+- (void)fillModeCell{
+    switch (self.gamedata.settings.mode) {
         case Power2:
-            [self.modeLabel.detailTextLabel setText:@"Quadrat"];
+            [self.modeCell.detailTextLabel setText:@"Quadrat"];
             break;
         case Power3:
-            [self.modeLabel.detailTextLabel setText:@"Kubig"];
+            [self.modeCell.detailTextLabel setText:@"Kubig"];
             break;
         case Power4:
-            [self.modeLabel.detailTextLabel setText:@"Hoch 4"];
+            [self.modeCell.detailTextLabel setText:@"Hoch 4"];
             break;
         default:
             break;
     }
 }
-- (void)fillPerpectiveLabel{
-    switch (self.detailGamedata.usedSettings.currentPerspective) {
+- (void)fillPerpectiveCell{
+    switch (self.gamedata.settings.perspective) {
         case SCORER:
-            [self.perspectiveLabel.detailTextLabel setText:@"Scorer"];
+            [self.perspectiveCell.detailTextLabel setText:@"Scorer"];
             break;
         case WINNER:
-            [self.perspectiveLabel.detailTextLabel setText:@"Winner"];
+            [self.perspectiveCell.detailTextLabel setText:@"Winner"];
             break;
         default:
             break;
     }
 }
-- (void)fillSaveTypeLabel{
-    if (self.detailGamedata.usedSettings.saveOn) {
-        [self.saveTypeLabel.detailTextLabel setText:@"Manuelles Speichern"];
+- (void)fillSaveTypeCell{
+    if (self.gamedata.settings.saveOn) {
+        [self.saveTypeCell.detailTextLabel setText:@"Manuelles Speichern"];
     }
-    if (self.detailGamedata.usedSettings.automaticSaveOn) {
-        [self.saveTypeLabel.detailTextLabel setText:@"Automatisches Speichern"];
+    if (self.gamedata.settings.automaticSaveOn) {
+        [self.saveTypeCell.detailTextLabel setText:@"Automatisches Speichern"];
     }
 }
 

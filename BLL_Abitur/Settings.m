@@ -15,9 +15,9 @@
     self = [super init];
     if (self) {
         
-        self.currentDifficulty = 0;
-        self.currentMode = 0;
-        self.currentPerspective = 0;
+        self.difficulty = 0;
+        self.mode = 0;
+        self.perspective = 0;
         self.saveOn = NO;
         self.automaticSaveOn = NO;
         
@@ -30,18 +30,18 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        self.currentDifficulty = [decoder decodeIntegerForKey:  @"Difficulty"];
-        self.currentMode = [decoder decodeIntegerForKey:        @"Mode"];
-        self.currentPerspective = [decoder decodeIntegerForKey: @"Perspective"];
+        self.difficulty = [decoder decodeIntegerForKey:  @"Difficulty"];
+        self.mode = [decoder decodeIntegerForKey:        @"Mode"];
+        self.perspective = [decoder decodeIntegerForKey: @"Perspective"];
         self.saveOn = [decoder decodeBoolForKey:                @"SaveOn"];
         self.automaticSaveOn = [decoder decodeBoolForKey:       @"AutomaticSaveOn"];
     }
     return self;
 }
 - (void) encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeInteger: _currentDifficulty forKey:     @"Difficulty"];
-    [encoder encodeInteger: _currentMode forKey:           @"Mode"];
-    [encoder encodeInteger: _currentPerspective forKey:    @"Perspective"];
+    [encoder encodeInteger: _difficulty forKey:     @"Difficulty"];
+    [encoder encodeInteger: _mode forKey:           @"Mode"];
+    [encoder encodeInteger: _perspective forKey:    @"Perspective"];
     [encoder encodeBool: _saveOn forKey:                   @"SaveOn"];
     [encoder encodeBool: _automaticSaveOn forKey:          @"AutomaticSaveOn"];
 }

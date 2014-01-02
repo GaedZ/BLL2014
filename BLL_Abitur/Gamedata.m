@@ -12,10 +12,8 @@
 -(id)initDefault {
     self = [super init];
     if (self) {
-        _usedSettings = [[Settings alloc]initDefault];
-        _number = [NSString stringWithFormat:@""];
-        _turn = 0;
-        _lastSaved = nil;
+        self.gamingInfo = [[GamingInfo alloc]initDefault];
+        self.settings = [[Settings alloc]initDefault];
     }
     return self;
 }
@@ -25,18 +23,14 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        self.usedSettings = [decoder decodeObjectForKey:    @"Settings"];
-        self.number =       [decoder decodeObjectForKey:    @"Number"];
-        self.turn =         [decoder decodeIntegerForKey:   @"Turn"];
-        self.lastSaved =    [decoder decodeObjectForKey:    @"LastSaved"];
+        self.gamingInfo = [decoder decodeObjectForKey:@"GamingInfo"];
+        self.settings = [decoder decodeObjectForKey:    @"Settings"];
     }
     return self;
 }
 - (void) encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:_usedSettings forKey: @"Settings"];
-    [encoder encodeObject:_number forKey:       @"Number"];
-    [encoder encodeInteger:_turn forKey:        @"Turn"];
-    [encoder encodeObject:_lastSaved forKey:    @"LastSaved"];
+    [encoder encodeObject:self.gamingInfo forKey:@"GamingInfo"];
+    [encoder encodeObject:self.settings forKey: @"Settings"];
 }
 
 #pragma mark

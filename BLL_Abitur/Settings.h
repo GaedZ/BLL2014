@@ -20,19 +20,15 @@ typedef enum{
     Intermediate,
     Hard
 }Difficulty;
-
 typedef enum {SCORER, WINNER} Perspective;
-typedef unsigned long long int int64;
-typedef unsigned long int int32;
-typedef unsigned short int16;
 
 #pragma mark
 
 @interface Settings : NSObject
 
-@property(nonatomic,readwrite) Difficulty currentDifficulty;
-@property(nonatomic,readwrite) Mode currentMode;
-@property(nonatomic,readwrite) Perspective currentPerspective;
+@property(nonatomic,readwrite) Difficulty difficulty;
+@property(nonatomic,readwrite) Mode mode;
+@property(nonatomic,readwrite) Perspective perspective;
 @property(nonatomic,readwrite) BOOL saveOn;
 @property(nonatomic,readwrite) BOOL automaticSaveOn;
 

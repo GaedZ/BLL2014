@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "GamingInfo.h"
 #import "Settings.h"
+
 
 @interface Gamedata : NSObject <NSCoding,UIAlertViewDelegate>
 
-@property(nonatomic) Settings* usedSettings;
-@property(nonatomic) NSString* number;
-@property(nonatomic) int turn;
-@property(nonatomic) NSDate* lastSaved;
+@property(nonatomic) Settings* settings;
+@property(nonatomic) GamingInfo* gamingInfo;
 
 @property(nonatomic) NSString* pointer;
 

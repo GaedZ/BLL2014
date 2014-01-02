@@ -14,23 +14,23 @@
 
 @implementation SettingsViewController
 {
-    Gamedata *settingsGamedata;
+    Gamedata *gamedata;
 }
 
 - (void)useSettings
 {
-    settingsGamedata = [[Gamedata alloc] initDefault];
+    gamedata = [[Gamedata alloc] initDefault];
     for (UISwitch *swItem in _difficultyCollection) {
         if (swItem.on)
-            settingsGamedata.usedSettings.currentDifficulty = swItem.tag;
+            gamedata.settings.difficulty = swItem.tag;
     }
     for (UISwitch *swItem in _modeCollection) {
         if (swItem.on)
-            settingsGamedata.usedSettings.currentMode = swItem.tag;
+            gamedata.settings.mode = swItem.tag;
     }
-    settingsGamedata.usedSettings.currentPerspective = self.segmentedControlPerspective.selectedSegmentIndex;
-    settingsGamedata.usedSettings.saveOn = self.switchSave.on;
-    settingsGamedata.usedSettings.automaticSaveOn = self.switchAutoSave.on;
+    gamedata.settings.perspective = self.segmentedControlPerspective.selectedSegmentIndex;
+    gamedata.settings.saveOn = self.switchSave.on;
+    gamedata.settings.automaticSaveOn = self.switchAutoSave.on;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -38,7 +38,7 @@
     if ([[segue identifier] isEqualToString:@"showGameFromSett"]) {
         [self useSettings];
         GameViewController *currentGameViewController = (GameViewController *)segue.destinationViewController;
-        currentGameViewController.gameGamedata = settingsGamedata;        
+        currentGameViewController.gamedata = gamedata;        
     }
 }
 

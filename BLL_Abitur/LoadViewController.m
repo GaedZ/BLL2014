@@ -67,12 +67,12 @@
     if (sender == self) {
         if ([[segue identifier]isEqualToString:@"showGameFromLoad"]) {
             GameViewController *currentGameViewController = (GameViewController *)segue.destinationViewController;
-            currentGameViewController.gameGamedata = self.loadGamedata;
+            currentGameViewController.gamedata = self.loadGamedata;
             //currentGameViewController.navigationItem.hidesBackButton = YES;
         }
         if ([[segue identifier]isEqualToString:@"showDetailView"]) {
             DetailLoadViewController *viewController = (DetailLoadViewController*)segue.destinationViewController;
-            viewController.detailGamedata = self.loadGamedata;
+            viewController.gamedata = self.loadGamedata;
         }
     }
 }

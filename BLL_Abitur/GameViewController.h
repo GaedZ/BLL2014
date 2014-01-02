@@ -27,7 +27,7 @@ typedef enum {StateOne, StateTwo} Button;
 #pragma mark
 #pragma mark Setup
 @property (nonatomic, weak) id <GameViewControllerDelegate> delegate;
-@property (nonatomic, retain) Gamedata *gameGamedata;
+@property (nonatomic, retain) Gamedata *gamedata;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;

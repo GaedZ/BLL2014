@@ -33,7 +33,7 @@
 		5672463818731967000BB7F9 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462E18731967000BB7F9 /* Settings.m */; };
 		5672463918731967000BB7F9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463018731967000BB7F9 /* SettingsViewController.m */; };
 		5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463C18731AA9000BB7F9 /* GameViewController.m */; };
-		5672468A1875866D000BB7F9 /* GameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246891875866D000BB7F9 /* GameInfo.m */; };
+		5672468A1875866D000BB7F9 /* GamingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246891875866D000BB7F9 /* GamingInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +89,8 @@
 		5672462F18731967000BB7F9 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5672463018731967000BB7F9 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5672463C18731AA9000BB7F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		567246881875866D000BB7F9 /* GameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfo.h; sourceTree = "<group>"; };
-		567246891875866D000BB7F9 /* GameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfo.m; sourceTree = "<group>"; };
+		567246881875866D000BB7F9 /* GamingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamingInfo.h; sourceTree = "<group>"; };
+		567246891875866D000BB7F9 /* GamingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamingInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,12 +224,7 @@
 			children = (
 				5672462518731967000BB7F9 /* Highscore.h */,
 				5672462618731967000BB7F9 /* Highscore.m */,
-				5672462218731967000BB7F9 /* Gamedata.h */,
-				5672462318731967000BB7F9 /* Gamedata.m */,
-				5672462D18731967000BB7F9 /* Settings.h */,
-				5672462E18731967000BB7F9 /* Settings.m */,
-				567246881875866D000BB7F9 /* GameInfo.h */,
-				567246891875866D000BB7F9 /* GameInfo.m */,
+				5672468D187586FF000BB7F9 /* Gamedata */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -243,6 +238,27 @@
 				5672462A18731967000BB7F9 /* Numberchecker.m */,
 			);
 			name = Action;
+			sourceTree = "<group>";
+		};
+		5672468D187586FF000BB7F9 /* Gamedata */ = {
+			isa = PBXGroup;
+			children = (
+				5672462218731967000BB7F9 /* Gamedata.h */,
+				5672462318731967000BB7F9 /* Gamedata.m */,
+				5672468E18758717000BB7F9 /* Subdata */,
+			);
+			name = Gamedata;
+			sourceTree = "<group>";
+		};
+		5672468E18758717000BB7F9 /* Subdata */ = {
+			isa = PBXGroup;
+			children = (
+				5672462D18731967000BB7F9 /* Settings.h */,
+				5672462E18731967000BB7F9 /* Settings.m */,
+				567246881875866D000BB7F9 /* GamingInfo.h */,
+				567246891875866D000BB7F9 /* GamingInfo.m */,
+			);
+			name = Subdata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,7 +365,7 @@
 				5672463318731967000BB7F9 /* Gamedata.m in Sources */,
 				567245E518731433000BB7F9 /* main.m in Sources */,
 				5672463118731967000BB7F9 /* Computerplays.m in Sources */,
-				5672468A1875866D000BB7F9 /* GameInfo.m in Sources */,
+				5672468A1875866D000BB7F9 /* GamingInfo.m in Sources */,
 				5672463418731967000BB7F9 /* Highscore.m in Sources */,
 				5672461118731549000BB7F9 /* MenuViewController.m in Sources */,
 				5672461818731621000BB7F9 /* CreditsViewController.m in Sources */,

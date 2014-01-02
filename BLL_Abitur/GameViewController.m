@@ -17,7 +17,7 @@
 # pragma mark
 -(void)viewDidLoad {
     
-    [self.numberLabel setText:_gameGamedata.number];
+    [self.numberLabel setText:self.gamedata.gamingInfo.number];
 
     self.hintenTextField.delegate = self;
     self.vorneTextField.delegate = self;
@@ -28,16 +28,16 @@
 
     self.scrollView.contentSize = CGSizeMake(_numberLabel.frame.size.width, self.scrollView.contentSize.height);
     
-    if (self.gameGamedata.usedSettings.currentDifficulty != PvP &&
-        self.gameGamedata.usedSettings.currentPerspective == WINNER &&
-        self.gameGamedata.turn == 0)
+    if (self.gamedata.settings.difficulty != PvP &&
+        self.gamedata.settings.perspective == WINNER &&
+        self.gamedata.gamingInfo.turn == 0)
     {
         _statusLabel.text = @"Computer denkt nach";
         
          for (UIButton *buItem in _ActionButtons) {
              buItem.enabled = NO;}
         _numberLabel.text = @"7";
-        _gameGamedata.turn++;
+        _gamedata.gamingInfo.turn++;
         for (UIButton *buItem in _ActionButtons) {
             buItem.enabled = YES;}
  
@@ -78,23 +78,23 @@
                 else
                 {
                     [self putPlayersNumber];
-                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[_numberLabel.text longLongValue]] forMode:self.gameGamedata.usedSettings.currentMode]) {
+                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[_numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
                         [self showEndbox];
                     }
-                    _gameGamedata.turn++;
+                    _gamedata.gamingInfo.turn++;
 
                     
-                    if (self.gameGamedata.usedSettings.currentDifficulty != PvP){
+                    if (self.gamedata.settings.difficulty != PvP){
                     [self putComputersNumber];
-                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[_numberLabel.text longLongValue]] forMode:self.gameGamedata.usedSettings.currentMode]) {
+                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[_numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
                         [self showEndbox];
                     }
-                    _gameGamedata.turn++;
+                    _gamedata.gamingInfo.turn++;
                     }
-                    if (self.gameGamedata.usedSettings.currentDifficulty == PvP){
-                        if (_gameGamedata.turn % 2 == 0)
+                    if (self.gamedata.settings.difficulty == PvP){
+                        if (_gamedata.gamingInfo.turn % 2 == 0)
                             [_statusLabel setText:@"Spieler 1 am Zug"];
-                        else if (_gameGamedata.turn % 2 == 1)
+                        else if (_gamedata.gamingInfo.turn % 2 == 1)
                             [_statusLabel setText:@"Spieler 2 am Zug"];
                     }
 
@@ -126,9 +126,9 @@
                          _statusLabel.text = @"Computer denkt nach";
                          _statusLabel.alpha = 2.0f;
                      }];
-    [self.numberLabel setText: [Computerplays playGameWithAI:   self.gameGamedata.usedSettings.currentDifficulty
-                                           Perspective:         self.gameGamedata.usedSettings.currentPerspective
-                                               andMode:         self.gameGamedata.usedSettings.currentMode
+    [self.numberLabel setText: [Computerplays playGameWithAI:   self.gamedata.settings.difficulty
+                                           Perspective:         self.gamedata.settings.perspective
+                                               andMode:         self.gamedata.settings.mode
                                         usingTheNumber:         _numberLabel.text]];
     for (UIButton *buItem in _ActionButtons) {
         buItem.enabled = YES;}
@@ -147,7 +147,7 @@
         buItem.tag = StateOne;}
 }
 - (void)resetField{
-    _gameGamedata.turn = 0;
+    _gamedata.gamingInfo.turn = 0;
     _numberLabel.text = @"";
     _statusLabel.text = @"Spieler 1 am Zug";
 }
@@ -156,11 +156,11 @@
 #pragma End of Game
 
 - (IBAction)endGame:(UIButton*)sender{
-    if (self.gameGamedata.usedSettings.saveOn && self.gameGamedata.turn != 0)
+    if (self.gamedata.settings.saveOn && self.gamedata.gamingInfo.turn != 0)
     {
-        if (self.gameGamedata.usedSettings.automaticSaveOn) {
+        if (self.gamedata.settings.automaticSaveOn) {
     
-            [[self preparedData] saveDataforKey:[NSString stringWithFormat:@"Spiel vom %@", [self stringForDate:[self preparedData].lastSaved]]];
+            [[self preparedData] saveDataforKey:[NSString stringWithFormat:@"Spiel vom %@", [self stringForDate:[self preparedData].gamingInfo.lastSaved]]];
             
             //Zurück zum Hauptmenü
             NSArray *VCs = [self.navigationController viewControllers];
@@ -178,7 +178,7 @@
         [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
   
     }
-    _gameGamedata = nil;
+    _gamedata = nil;
 }
 
 #pragma mark
@@ -290,10 +290,10 @@
 - (Gamedata*)preparedData
 {
     Gamedata *preparedData = [[Gamedata alloc]initDefault];
-    preparedData.usedSettings = self.gameGamedata.usedSettings;
-    preparedData.number = self.numberLabel.text;
-    preparedData.turn = _gameGamedata.turn;
-    preparedData.lastSaved = [NSDate date];
+    preparedData.settings = self.gamedata.settings;
+    preparedData.gamingInfo.number = self.numberLabel.text;
+    preparedData.gamingInfo.turn = _gamedata.gamingInfo.turn;
+    preparedData.gamingInfo.lastSaved = [NSDate date];
     return preparedData;
 }
 @end

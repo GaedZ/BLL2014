@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Settings.h"
 
+typedef unsigned long long int int64;
+typedef unsigned long int int32;
+typedef unsigned short int16;
 
 @interface Numberchecker : NSObject
 
