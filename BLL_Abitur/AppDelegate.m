@@ -12,6 +12,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ListOfGames"] == Nil) {
+        NSMutableDictionary *list = [NSMutableDictionary new];
+        [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"ListOfGames"];
+    }
+    
     CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
     if (iOSDeviceScreenSize.height == 480)
     {

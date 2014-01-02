@@ -33,6 +33,7 @@
 		5672463818731967000BB7F9 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462E18731967000BB7F9 /* Settings.m */; };
 		5672463918731967000BB7F9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463018731967000BB7F9 /* SettingsViewController.m */; };
 		5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463C18731AA9000BB7F9 /* GameViewController.m */; };
+		5672468A1875866D000BB7F9 /* GameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246891875866D000BB7F9 /* GameInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		567245D518731432000BB7F9 /* BLL_Abitur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLL_Abitur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		567245D518731432000BB7F9 /* BLL_Abitur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BLL_Abitur.app; path = "/Users/Georg/Documents/XCode Projects/Projects/BLL_Abitur/build/Debug-iphoneos/BLL_Abitur.app"; sourceTree = "<absolute>"; };
 		567245D818731432000BB7F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		567245DA18731432000BB7F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		567245DC18731432000BB7F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -57,7 +58,7 @@
 		567245E718731433000BB7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		567245E818731433000BB7F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		567245EB18731433000BB7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainR4.storyboard; sourceTree = "<group>"; };
-		567245F618731433000BB7F9 /* BLL_AbiturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLL_AbiturTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		567245F618731433000BB7F9 /* BLL_AbiturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BLL_AbiturTests.xctest; path = "/Users/Georg/Documents/XCode Projects/Projects/BLL_Abitur/build/Debug-iphoneos/BLL_AbiturTests.xctest"; sourceTree = "<absolute>"; };
 		567245F718731433000BB7F9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		567245FF18731433000BB7F9 /* BLL_AbiturTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLL_AbiturTests-Info.plist"; sourceTree = "<group>"; };
 		5672460118731433000BB7F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -88,6 +89,8 @@
 		5672462F18731967000BB7F9 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5672463018731967000BB7F9 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5672463C18731AA9000BB7F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		567246881875866D000BB7F9 /* GameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfo.h; sourceTree = "<group>"; };
+		567246891875866D000BB7F9 /* GameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,17 +123,7 @@
 				567245DE18731432000BB7F9 /* BLL_Abitur */,
 				567245FD18731433000BB7F9 /* BLL_AbiturTests */,
 				567245D718731432000BB7F9 /* Frameworks */,
-				567245D618731432000BB7F9 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		567245D618731432000BB7F9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				567245D518731432000BB7F9 /* BLL_Abitur.app */,
-				567245F618731433000BB7F9 /* BLL_AbiturTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		567245D718731432000BB7F9 /* Frameworks */ = {
@@ -220,18 +213,36 @@
 		5672463B187319CC000BB7F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5672461E18731967000BB7F9 /* Computerplays.h */,
-				5672461F18731967000BB7F9 /* Computerplays.m */,
-				5672462218731967000BB7F9 /* Gamedata.h */,
-				5672462318731967000BB7F9 /* Gamedata.m */,
-				5672462518731967000BB7F9 /* Highscore.h */,
-				5672462618731967000BB7F9 /* Highscore.m */,
-				5672462918731967000BB7F9 /* Numberchecker.h */,
-				5672462A18731967000BB7F9 /* Numberchecker.m */,
-				5672462D18731967000BB7F9 /* Settings.h */,
-				5672462E18731967000BB7F9 /* Settings.m */,
+				5672468C187586B3000BB7F9 /* Action */,
+				5672468B1875868F000BB7F9 /* Data */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		5672468B1875868F000BB7F9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5672462518731967000BB7F9 /* Highscore.h */,
+				5672462618731967000BB7F9 /* Highscore.m */,
+				5672462218731967000BB7F9 /* Gamedata.h */,
+				5672462318731967000BB7F9 /* Gamedata.m */,
+				5672462D18731967000BB7F9 /* Settings.h */,
+				5672462E18731967000BB7F9 /* Settings.m */,
+				567246881875866D000BB7F9 /* GameInfo.h */,
+				567246891875866D000BB7F9 /* GameInfo.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		5672468C187586B3000BB7F9 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				5672461E18731967000BB7F9 /* Computerplays.h */,
+				5672461F18731967000BB7F9 /* Computerplays.m */,
+				5672462918731967000BB7F9 /* Numberchecker.h */,
+				5672462A18731967000BB7F9 /* Numberchecker.m */,
+			);
+			name = Action;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +306,7 @@
 				Base,
 			);
 			mainGroup = 567245CC18731432000BB7F9;
-			productRefGroup = 567245D618731432000BB7F9 /* Products */;
+			productRefGroup = 567245CC18731432000BB7F9;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -338,6 +349,7 @@
 				5672463318731967000BB7F9 /* Gamedata.m in Sources */,
 				567245E518731433000BB7F9 /* main.m in Sources */,
 				5672463118731967000BB7F9 /* Computerplays.m in Sources */,
+				5672468A1875866D000BB7F9 /* GameInfo.m in Sources */,
 				5672463418731967000BB7F9 /* Highscore.m in Sources */,
 				5672461118731549000BB7F9 /* MenuViewController.m in Sources */,
 				5672461818731621000BB7F9 /* CreditsViewController.m in Sources */,

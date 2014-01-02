@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Settings.h"
 
-@interface Gamedata : NSObject <NSCoding>
+@interface Gamedata : NSObject <NSCoding,UIAlertViewDelegate>
 
 @property(nonatomic) Settings* usedSettings;
 @property(nonatomic) NSString* number;
 @property(nonatomic) int turn;
 @property(nonatomic) NSDate* lastSaved;
-@property(nonatomic) NSString* name;
+
+@property(nonatomic) NSString* pointer;
 
 #pragma mark
 - (id)initDefault;
@@ -23,8 +24,8 @@
 #pragma mark
 #pragma mark Laden/Speichern
 + (Gamedata *)loadGamedataWithKey:(NSString *)key;
-+ (void)saveGamedata:(Gamedata *)data forKey:(NSString *)key;
-+ (void)deleteGamedataforKey:(NSString *)key;
+- (void)saveDataforKey:(NSString*)key;
+- (void)deleteData;
 
 
 

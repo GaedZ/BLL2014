@@ -156,8 +156,12 @@
 #pragma End of Game
 
 - (IBAction)endGame:(UIButton*)sender{
-    if (self.gameGamedata.usedSettings.saveOn) {
+    if (self.gameGamedata.usedSettings.saveOn && self.gameGamedata.turn != 0)
+    {
         if (self.gameGamedata.usedSettings.automaticSaveOn) {
+    
+            [[self preparedData] saveDataforKey:[NSString stringWithFormat:@"Spiel vom %@", [self stringForDate:[self preparedData].lastSaved]]];
+            
             //Zurück zum Hauptmenü
             NSArray *VCs = [self.navigationController viewControllers];
             [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
@@ -212,6 +216,7 @@
     if ([alertView.title isEqualToString:@"Spiel vorbei"]) {
         if (buttonIndex == 0) {
             [self resetField];
+            
             NSArray *VCs = [self.navigationController viewControllers];
             [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
         }
@@ -226,13 +231,7 @@
         }
         else if(buttonIndex == 1)
         {
-            Gamedata *preparedData = [[Gamedata alloc]initDefault];
-            preparedData.usedSettings = self.gameGamedata.usedSettings;
-            preparedData.number = self.numberLabel.text;
-            preparedData.turn = _gameGamedata.turn;
-            preparedData.lastSaved = [NSDate date];
-            preparedData.name = [alertView textFieldAtIndex:0].text;
-            [Gamedata saveGamedata:preparedData forKey:[alertView textFieldAtIndex:0].text];
+            [[self preparedData] saveDataforKey:[alertView textFieldAtIndex:0].text];
         }
        
         //Zurück zum Hauptmenü
@@ -264,7 +263,7 @@
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     return (newLength > 1) ? NO : YES;
 }
--(void)hideText{
+- (void)hideText{
     [UIView beginAnimations:@"fadeOutText" context:NULL];
     [UIView setAnimationDuration:1.0];
     _statusLabel.alpha = 0.0f;
@@ -275,10 +274,26 @@
                                    userInfo:nil
                                     repeats:NO];
 }
--(void)showText{
+- (void)showText{
     [UIView beginAnimations:@"fadeInText" context:NULL];
     [UIView setAnimationDuration:1.0];
     _statusLabel.alpha = 1.0f;
     [UIView commitAnimations];
+}
+- (NSString*)stringForDate:(NSDate*)date
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    return [dateFormatter stringFromDate:date];
+}
+- (Gamedata*)preparedData
+{
+    Gamedata *preparedData = [[Gamedata alloc]initDefault];
+    preparedData.usedSettings = self.gameGamedata.usedSettings;
+    preparedData.number = self.numberLabel.text;
+    preparedData.turn = _gameGamedata.turn;
+    preparedData.lastSaved = [NSDate date];
+    return preparedData;
 }
 @end

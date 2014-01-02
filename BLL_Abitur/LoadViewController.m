@@ -92,7 +92,8 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [Gamedata deleteGamedataforKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+        Gamedata *toBeDeletedData = [Gamedata loadGamedataWithKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+        [toBeDeletedData deleteData];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {

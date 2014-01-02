@@ -9,15 +9,13 @@
 #import "Gamedata.h"
 
 @implementation Gamedata
-
--(id)initDefault{
+-(id)initDefault {
     self = [super init];
     if (self) {
         _usedSettings = [[Settings alloc]initDefault];
         _number = [NSString stringWithFormat:@""];
         _turn = 0;
         _lastSaved = nil;
-        _name = nil;
     }
     return self;
 }
@@ -31,7 +29,6 @@
         self.number =       [decoder decodeObjectForKey:    @"Number"];
         self.turn =         [decoder decodeIntegerForKey:   @"Turn"];
         self.lastSaved =    [decoder decodeObjectForKey:    @"LastSaved"];
-        self.name =         [decoder decodeObjectForKey:    @"Name"];
     }
     return self;
 }
@@ -40,7 +37,6 @@
     [encoder encodeObject:_number forKey:       @"Number"];
     [encoder encodeInteger:_turn forKey:        @"Turn"];
     [encoder encodeObject:_lastSaved forKey:    @"LastSaved"];
-    [encoder encodeObject:_name forKey:         @"Name"];
 }
 
 #pragma mark
@@ -54,21 +50,56 @@
     
     return data;
 }
-+ (void)saveGamedata:(Gamedata *)data forKey:(NSString *)key {
+
+- (void)saveDataforKey:(NSString *)key {
+    self.pointer = key;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *list     = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
-    NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:data];
-    [list setObject:encodedData forKey:key];
-    [defaults setObject:list forKey:@"ListOfGames"];
-    
-    [defaults setObject:encodedData forKey:key];
-    [defaults synchronize];
+    if (list[key])
+    {
+        [self showFileDoesNotExistBox];
+    }
+    if (!list[key])
+    {
+        NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:self];
+        [list setObject:encodedData forKey:key];
+        [defaults setObject:list forKey:@"ListOfGames"];
+        
+        [defaults setObject:encodedData forKey:key];
+        [defaults synchronize];
+    }
 }
-+ (void)deleteGamedataforKey:(NSString *)key {
+- (void)deleteData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *list = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
-    [list removeObjectForKey:key];
+    [list removeObjectForKey:self.pointer];
     [defaults setObject:list forKey:@"ListOfGames"];
     [defaults synchronize];
 }
+
+#pragma mark
+#pragma mark Alert Boxes
+- (void)showFileDoesNotExistBox {
+    UIAlertView *FileDoesNotExistBox = [[UIAlertView alloc] initWithTitle:@"Achtung"
+                                                            message:@"Ein Spielstand mit diesem Namen existiert bereits. Überschreiben?"
+                                                            delegate:self
+                                                            cancelButtonTitle:nil
+                                                            otherButtonTitles:@"Ja",@"Nein", nil];
+    [FileDoesNotExistBox show];
+}
+//- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+//    NSLog(@"somethig");
+//    switch (buttonIndex) {
+//            
+//        case 0:
+//        {
+//            [[NSUserDefaults standardUserDefaults]removeObjectForKey:self.name];
+//        }
+//        break;
+//            
+//        default:
+//        break;
+//    }
+//}
 @end

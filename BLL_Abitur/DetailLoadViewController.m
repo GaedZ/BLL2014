@@ -52,7 +52,7 @@
 #pragma mark Formatierung
 
 - (void)fillLastSavedLabel{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [self.lastSavedLabel.detailTextLabel setText:[dateFormatter stringFromDate:_detailGamedata.lastSaved]];
