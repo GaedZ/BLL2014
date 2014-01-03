@@ -10,6 +10,10 @@
 
 #pragma mark Konstanten Typedefs
 
+typedef unsigned long long int int64;
+typedef unsigned long int int32;
+typedef unsigned short int16;
+
 typedef enum{
     Power2 = 0,
     Power3,

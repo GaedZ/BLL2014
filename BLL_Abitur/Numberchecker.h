@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CustomNSObject.h"
 #import "Settings.h"
 
-typedef unsigned long long int int64;
-typedef unsigned long int int32;
-typedef unsigned short int16;
-
-@interface Numberchecker : NSObject
+@interface Numberchecker : CustomNSObject
 
 + (BOOL)isSquare: (int64)x;
 + (BOOL)isCubic:  (int64)x;

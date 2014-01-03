@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CustomNSObject.h"
 #import "Settings.h"
 
 typedef enum {VorneP, HintenP} Position;
 
-@interface Computerplays : NSObject
+@interface Computerplays : CustomNSObject
 
 + (NSString*)playGameWithSettings:(Settings*)settings usingTheNumber:(NSString*)number;
 

@@ -72,6 +72,10 @@
 
 - (IBAction)Schwierigkeit:(UISwitch*)sender
 {
+    if (_switch2Players == sender)
+        _segmentedControlPerspective.enabled = NO;
+    else
+        _segmentedControlPerspective.enabled = YES;
 
     if (_switch2Players != sender){
         [_switch2Players setOn: !sender.on animated:YES];

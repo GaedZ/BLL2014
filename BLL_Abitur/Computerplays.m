@@ -7,6 +7,7 @@
 //
 
 #import "Computerplays.h"
+#import "Numberchecker.h"
 
 @interface Computerplays ()
 
@@ -62,6 +63,9 @@
 }
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number withMode:(Mode)mode andPerspective:(Perspective)perspective
 {
+    if ([number isEqualToString:@""] && perspective == WINNER)
+        return @"7";
+    
     switch (mode) {
         case Power2:
             return [self makeSkilledMoveUsingTheNumber:number andPower2UsingThePerspective:perspective];
@@ -78,14 +82,80 @@
 }
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower2UsingThePerspective:(Perspective)finalPerspective
 {
+    switch (finalPerspective) {
+        case SCORER: {
+            ;
+            break;
+        }
+        case WINNER: {
+            
+            NSString *tempNumber = [number stringByAppendingString:@"2"];
+            if (![Numberchecker isSquare:[tempNumber longLongValue]]) {
+                int i = 0;
+                while (![Numberchecker isSquare:([tempNumber longLongValue]*10 + i)] && i!=10)
+                {
+                    i++;
+                }
+                if (i == 10)
+                {
+                    return number = [number stringByAppendingString:@"2"];
+                }
+                
+            else
+            {
+                return number = [number stringByAppendingString:@"3"];
+            }
+            break;
+            }
+            else {
+                return number = [number stringByAppendingString:@"3"];
+            }
+    
+        }
+        default: {
+            break;
+        }
+    }
     return nil;
 }
+    
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower3UsingThePerspective:(Perspective)finalPerspective
 {
+    switch (finalPerspective)
+    {
+//        case SCORER:
+//        {
+//            statements
+//            break;
+//        }
+//        case WINNER:
+//        {
+//            statements
+//            break;
+//        }
+        default:
+            break;
+    }
+    
     return nil;
 }
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower4UsingThePerspective:(Perspective)finalPerspective;
 {
+    switch (finalPerspective) {
+//        case SCORER:
+//        {
+//            statements
+//            break;
+//        }
+//        case WINNER:
+//        {
+//            statements
+//            break;
+//        }
+        default:
+            break;
+    }
+    
     return nil;
 }
 

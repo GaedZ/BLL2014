@@ -100,18 +100,21 @@
                 else
                 {
                     [self putPlayersNumber];
+                    
                     if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
+                        
                         [self showEndbox];
                     }
-                    self.gamedata.gamingInfo.turn++;
 
                     
                     if (self.gamedata.settings.difficulty != PvP){
                     [self putComputersNumber];
-                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
+                        
+                    
+                        if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
+                        
                         [self showEndbox];
                     }
-                    self.gamedata.gamingInfo.turn++;
                     }
                     if (self.gamedata.settings.difficulty == PvP){
                         if (self.gamedata.gamingInfo.turn % 2 == 0)
@@ -137,6 +140,7 @@
         [self.numberLabel setText:[self.vorneTextField.text stringByAppendingString:self.numberLabel.text]];
     if (self.hintenTextField.enabled)
         [self.numberLabel setText:[self.numberLabel.text stringByAppendingString: self.hintenTextField.text]];
+    self.gamedata.gamingInfo.turn++;
 }
 - (void)putComputersNumber{
     for (UIButton *buItem in self.ActionButtons) {
@@ -151,6 +155,7 @@
     for (UIButton *buItem in self.ActionButtons) {
         buItem.enabled = YES;}
     self.statusLabel.text = @"Du bist dran!";
+    self.gamedata.gamingInfo.turn++;
 }
 - (void)prepareDefaultState{
     [self.hintenTextField resignFirstResponder];
