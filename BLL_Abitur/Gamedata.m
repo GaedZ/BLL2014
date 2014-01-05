@@ -1,6 +1,6 @@
 //
 //  Gamedata.m
-//  BuWeA4
+//  BLL_Abitur
 //
 //  Created by Georg Zänker on 29.09.13.
 //  Copyright (c) 2013 Georg Zänker. All rights reserved.
@@ -9,11 +9,12 @@
 #import "Gamedata.h"
 
 @implementation Gamedata
+
 -(id)initDefault {
     self = [super init];
     if (self) {
-        self.gamingInfo = [[GamingInfo alloc]initDefault];
-        self.settings = [[Settings alloc]initDefault];
+        self.gamingInfo = [[GamingInfo alloc] initDefault];
+        self.settings = [[Settings alloc] initDefault];
         self.pointer = nil;
     }
     return self;
@@ -33,7 +34,7 @@
 - (void) encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.gamingInfo forKey:@"GamingInfo"];
     [encoder encodeObject:self.settings forKey: @"Settings"];
-    [encoder encodeObject:self.pointer forKey:@"Pointer"];
+    [encoder encodeObject:self.pointer forKey: @"Pointer"];
 }
 
 #pragma mark
@@ -53,19 +54,13 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *list     = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
-    if (list[key])
-    {
-        [self showFileDoesNotExistBox];
-    }
-    if (!list[key])
-    {
-        NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:self];
-        [list setObject:encodedData forKey:key];
-        [defaults setObject:list forKey:@"ListOfGames"];
-        
-        [defaults setObject:encodedData forKey:key];
-        [defaults synchronize];
-    }
+
+    NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:self];
+    [list setObject:encodedData forKey:key];
+    [defaults setObject:list forKey:@"ListOfGames"];
+    
+    [defaults setObject:encodedData forKey:key]; //???????????????
+    [defaults synchronize];
 }
 - (void)deleteData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -76,28 +71,8 @@
     [defaults synchronize];
 }
 
-#pragma mark
-#pragma mark Alert Boxes
-- (void)showFileDoesNotExistBox {
-    UIAlertView *FileDoesNotExistBox = [[UIAlertView alloc] initWithTitle:@"Achtung"
-                                                            message:@"Ein Spielstand mit diesem Namen existiert bereits. Überschreiben?"
-                                                            delegate:self
-                                                            cancelButtonTitle:nil
-                                                            otherButtonTitles:@"Ja",@"Nein", nil];
-    [FileDoesNotExistBox show];
+-(void)removeDataForKey:(NSString*)key {
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
 }
-//- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-//    NSLog(@"somethig");
-//    switch (buttonIndex) {
-//            
-//        case 0:
-//        {
-//            [[NSUserDefaults standardUserDefaults]removeObjectForKey:self.name];
-//        }
-//        break;
-//            
-//        default:
-//        break;
-//    }
-//}
+
 @end

@@ -1,14 +1,14 @@
 //
-//  Numberchecker.m
-//  BuWeA4
+//  NSNumber+Numberchecker.m
+//  BLL_Abitur
 //
-//  Created by Georg Zänker on 04.09.13.
-//  Copyright (c) 2013 Georg Zänker. All rights reserved.
+//  Created by Georg Zänker on 04.01.14.
+//  Copyright (c) 2014 Georg Zänker. All rights reserved.
 //
 
-#import "Numberchecker.h"
+#import "NSNumber+Numberchecker.h"
 
-@implementation Numberchecker
+@implementation NSNumber (Numberchecker)
 
 +(BOOL)isSquare:(int64)x
 {

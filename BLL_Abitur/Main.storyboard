@@ -609,7 +609,7 @@
                         <sections>
                             <tableViewSection headerTitle="Perpektive" id="bGz-zA-X1m">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResetScoreCell" rowHeight="30" id="bS8-se-7bs">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="30" id="bS8-se-7bs">
                                         <rect key="frame" x="0.0" y="119" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bS8-se-7bs" id="dnx-ix-Obl">

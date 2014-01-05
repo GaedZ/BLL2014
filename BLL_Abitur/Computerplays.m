@@ -7,7 +7,7 @@
 //
 
 #import "Computerplays.h"
-#import "Numberchecker.h"
+#import "NSNumber+Numberchecker.h"
 
 @interface Computerplays ()
 
@@ -63,9 +63,6 @@
 }
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number withMode:(Mode)mode andPerspective:(Perspective)perspective
 {
-    if ([number isEqualToString:@""] && perspective == WINNER)
-        return @"7";
-    
     switch (mode) {
         case Power2:
             return [self makeSkilledMoveUsingTheNumber:number andPower2UsingThePerspective:perspective];
@@ -82,80 +79,95 @@
 }
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower2UsingThePerspective:(Perspective)finalPerspective
 {
-    switch (finalPerspective) {
-        case SCORER: {
-            ;
-            break;
-        }
-        case WINNER: {
+    if (finalPerspective == WINNER) {
+            //ANFANG
+            if ([number isEqualToString:@""])
+                return @"7";
             
-            NSString *tempNumber = [number stringByAppendingString:@"2"];
-            if (![Numberchecker isSquare:[tempNumber longLongValue]]) {
-                int i = 0;
-                while (![Numberchecker isSquare:([tempNumber longLongValue]*10 + i)] && i!=10)
-                {
-                    i++;
-                }
-                if (i == 10)
-                {
-                    return number = [number stringByAppendingString:@"2"];
-                }
-                
-            else
+            int64 tempNumber = [number longLongValue];
+            tempNumber = tempNumber * 10 + 2;
+            
+            if (![NSNumber isSquare:tempNumber])
             {
+                int i = 0;
+                while (![NSNumber isSquare:(tempNumber * 10 + i)] && i!=10)
+                    i++;
+                if (i == 10)
+                    return number = [number stringByAppendingString:@"2"];
+                else
+                    return number = [number stringByAppendingString:@"3"];
+            }
+            else
                 return number = [number stringByAppendingString:@"3"];
-            }
-            break;
-            }
-            else {
-                return number = [number stringByAppendingString:@"3"];
-            }
-    
+            //ENDE
         }
-        default: {
-            break;
-        }
+    if (finalPerspective == SCORER) {
+        
+        
+        
+        
+//        statements;
     }
     return nil;
 }
     
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower3UsingThePerspective:(Perspective)finalPerspective
 {
-    switch (finalPerspective)
-    {
-//        case SCORER:
-//        {
-//            statements
-//            break;
-//        }
-//        case WINNER:
-//        {
-//            statements
-//            break;
-//        }
-        default:
-            break;
+    if (finalPerspective == WINNER) {
+        //ANFANG
+        if ([number isEqualToString:@""])
+            return @"5";
+        
+        int s = 0;
+        int w = 0;
+        int64 tempNumber = [number longLongValue];
+        
+        while ([NSNumber isCubic:(tempNumber*10 + s)] && w != 10) {
+//            w = 0;
+            while ((![NSNumber isCubic:(tempNumber*100 + s*10 + w)] && w!=10))
+                w++;
+            if ([NSNumber isCubic:(tempNumber*10 + s)] || w != 10)
+                s++; w = 0;
+        }
+        
+        return [number stringByAppendingString:[NSString stringWithFormat:@"%d", s]];
+        //ENDE
     }
-    
+    else if (finalPerspective == SCORER)
+    {
+        //            statements
+    }
     return nil;
 }
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number andPower4UsingThePerspective:(Perspective)finalPerspective;
 {
-    switch (finalPerspective) {
-//        case SCORER:
-//        {
-//            statements
-//            break;
-//        }
-//        case WINNER:
-//        {
-//            statements
-//            break;
-//        }
-        default:
-            break;
+    if (finalPerspective == WINNER) {
+
+        //ANFANG
+        if ([number isEqualToString:@""])
+            return @"9";
+            
+        int64 tempNumber = [number longLongValue];
+        tempNumber = tempNumber * 10 + 7;
+        
+        if (![NSNumber isPower4:tempNumber])
+        {
+            int i = 0;
+            while (![NSNumber isPower4:(tempNumber * 10 + i)] && i!=10)
+                i++;
+            if (i == 10)
+                return number = [number stringByAppendingString:@"7"];
+            else
+                return number = [number stringByAppendingString:@"8"];
+        }
+        else
+            return number = [number stringByAppendingString:@"8"];
+        //ENDE
     }
-    
+    else if (finalPerspective == SCORER)
+    {
+        //
+    }
     return nil;
 }
 

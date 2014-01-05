@@ -8,42 +8,30 @@
 
 #import "GameViewController.h"
 #import "MenuViewController.h"
-#import "Highscore.h"
+#import "Highscores.h"
 
 @implementation GameViewController
 
 # pragma mark
 -(void)viewDidLoad {
     
-    //Set up Highscore Labels
-    {
-        Highscore *highscore = [[NSUserDefaults standardUserDefaults] objectForKey:@"Highscores"];
+    /*Set up Highscore Labels*/ {
+        HighscoresForMode *highscoresForMode = [Highscores loadHighscoresForMode:self.gamedata.settings.mode];
         
-        switch (self.gamedata.settings.mode) {
-            case Power2:
-                self.easyLabel.text = [highscore.Power2 objectAtIndex:Easy];
-                self.mediumLabel.text = [highscore.Power2 objectAtIndex:Medium];
-                self.hardLabel.text = [highscore.Power2 objectAtIndex:Hard];
-                break;
-            case Power3:
-                self.easyLabel.text = [highscore.Power2 objectAtIndex:Easy];
-                self.mediumLabel.text = [highscore.Power2 objectAtIndex:Medium];
-                self.hardLabel.text = [highscore.Power2 objectAtIndex:Hard];
-                break;
-            case Power4:
-                self.easyLabel.text = [highscore.Power2 objectAtIndex:Easy];
-                self.mediumLabel.text = [highscore.Power2 objectAtIndex:Medium];
-                self.hardLabel.text = [highscore.Power2 objectAtIndex:Hard];
-                break;
-            default:
-                break;
-        }
+        self.easyLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.easyScore];
+        self.mediumLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.mediumScore];
+        self.hardLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.hardScore];
     }
-    
-    //Set up numberLabel
+
+    //Set up numberLabel and statusLabel
     [self.numberLabel setText:@""];
     if (self.gamedata.gamingInfo.number != nil)
         [self.numberLabel setText:self.gamedata.gamingInfo.number];
+    if ((self.gamedata.gamingInfo.turn % 2 == 0) && self.gamedata.settings.difficulty == PvP)
+        [self.statusLabel setText:@"Scorer am Zug"];
+    else if ((self.gamedata.gamingInfo.turn % 2 == 1) && self.gamedata.settings.difficulty == PvP)
+        [self.statusLabel setText:@"Winner am Zug"];
+            
 
     //Set up both TextFields
     {
@@ -101,26 +89,26 @@
                 {
                     [self putPlayersNumber];
                     
-                    if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
-                        
+                    if ([NSNumber isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode])
+                    {
                         [self showEndbox];
                     }
 
                     
-                    if (self.gamedata.settings.difficulty != PvP){
+                    if (self.gamedata.settings.difficulty != PvP && ![NSNumber isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]){
                     [self putComputersNumber];
                         
                     
-                        if ([Numberchecker isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]) {
-                        
+                        if ([NSNumber isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode])
+                        {
                         [self showEndbox];
-                    }
+                        }
                     }
                     if (self.gamedata.settings.difficulty == PvP){
                         if (self.gamedata.gamingInfo.turn % 2 == 0)
-                            [self.statusLabel setText:@"Spieler 1 am Zug"];
+                            [self.statusLabel setText:@"Scorer am Zug"];
                         else if (self.gamedata.gamingInfo.turn % 2 == 1)
-                            [self.statusLabel setText:@"Spieler 2 am Zug"];
+                            [self.statusLabel setText:@"Winner am Zug"];
                     }
 
                     
@@ -172,11 +160,11 @@
 - (void)resetField{
     self.gamedata.gamingInfo.turn = 0;
     self.numberLabel.text = @"";
-    self.statusLabel.text = @"Spieler 1 am Zug";
+    self.statusLabel.text = @"Scorer am Zug";
 }
 
 #pragma mark
-#pragma End of Game
+#pragma mark End Game / Save Game
 
 - (IBAction)endGame:(UIButton*)sender{
     if (self.gamedata.settings.saveOn && self.gamedata.gamingInfo.turn != 0)
@@ -204,6 +192,16 @@
     self.gamedata = nil;
 }
 
+- (Gamedata*)preparedData
+{
+    Gamedata *preparedData = [[Gamedata alloc]initDefault];
+    preparedData.settings = self.gamedata.settings;
+    preparedData.gamingInfo.number = self.numberLabel.text;
+    preparedData.gamingInfo.turn = self.gamedata.gamingInfo.turn;
+    preparedData.gamingInfo.lastSaved = [NSDate date];
+    return preparedData;
+}
+
 #pragma mark
 #pragma mark Alarmboxen
 
@@ -218,13 +216,29 @@
     [Savebox show];
 }
 - (void)showEndbox{
-    UIAlertView *Endbox = [[UIAlertView alloc]
+    Perspective perspective = self.gamedata.settings.perspective;
+    BOOL isPvP = (self.gamedata.settings.difficulty == PvP);
+    
+    if (perspective == WINNER && !isPvP)
+    {
+        UIAlertView *Endbox = [[UIAlertView alloc]
                                initWithTitle: @"Spiel vorbei"
-                                     message: @"Score:"
-                                    delegate: self
-                           cancelButtonTitle: nil
-                           otherButtonTitles: @"Spiel beenden", @"Neues Spiel", nil];
-    [Endbox show];
+                               message: @"Du hast gewonnen!"
+                               delegate: self
+                               cancelButtonTitle: nil
+                               otherButtonTitles: @"Spiel beenden", @"Neues Spiel", nil];
+        [Endbox show];
+    }
+    else
+    {
+        UIAlertView *Endbox = [[UIAlertView alloc]
+                               initWithTitle: @"Spiel vorbei"
+                               message: @"Der Winner hat das Spiel beendet \n Score: "
+                               delegate: self
+                               cancelButtonTitle: nil
+                               otherButtonTitles: @"Spiel beenden", @"Neues Spiel", nil];
+        [Endbox show];
+    }
 }
 - (void)showErrorbox{
     UIAlertView *Errorbox = [[UIAlertView alloc]
@@ -234,6 +248,14 @@
                                   cancelButtonTitle: @"Ok"
                                   otherButtonTitles: nil];
     [Errorbox show];
+}
+- (void)showFileDoesNotExistBox {
+    UIAlertView *FileDoesNotExistBox = [[UIAlertView alloc] initWithTitle:@"Achtung"
+                                                                  message:@"Ein Spielstand mit diesem Namen existiert bereits. Überschreiben?"
+                                                                 delegate:self
+                                                        cancelButtonTitle:nil
+                                                        otherButtonTitles:@"Ja",@"Nein", nil];
+    [FileDoesNotExistBox show];
 }
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if ([alertView.title isEqualToString:@"Spiel vorbei"]) {
@@ -254,7 +276,16 @@
         }
         else if(buttonIndex == 1)
         {
-            [[self preparedData] saveDataforKey:[alertView textFieldAtIndex:0].text];
+            while (YES) {
+                Gamedata *gameData = [Gamedata loadGamedataWithKey:[alertView textFieldAtIndex:0].text];
+                if (gameData != nil) {
+                    [[self preparedData] saveDataforKey:[alertView textFieldAtIndex:0].text];
+                    break;
+                } else {
+//                    [[[UIAlertView alloc] initWithTitle:<#(NSString *)#> message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil] show];
+                }
+            }
+            
         }
        
         //Zurück zum Hauptmenü
@@ -265,7 +296,7 @@
 }
 
 #pragma mark
-#pragma mark Aufhübschung
+#pragma mark Details
 
 - (void)blinkAnimation:(NSString *)animationID finished:(BOOL)finished target:(UIView *)target{
     NSString *selectedSpeed = [[NSUserDefaults standardUserDefaults] stringForKey:@"EffectSpeed"];
@@ -310,13 +341,5 @@
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     return [dateFormatter stringFromDate:date];
 }
-- (Gamedata*)preparedData
-{
-    Gamedata *preparedData = [[Gamedata alloc]initDefault];
-    preparedData.settings = self.gamedata.settings;
-    preparedData.gamingInfo.number = self.numberLabel.text;
-    preparedData.gamingInfo.turn = self.gamedata.gamingInfo.turn;
-    preparedData.gamingInfo.lastSaved = [NSDate date];
-    return preparedData;
-}
+
 @end

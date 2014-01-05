@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadViewController.h"
 
-#import "Numberchecker.h"
+#import "NSNumber+Numberchecker.h"
 #import "Computerplays.h"
 #import "Gamedata.h"
 
@@ -18,15 +18,10 @@ typedef enum {StateOne, StateTwo} Button;
 
 @class GameViewController;
 
-@protocol GameViewControllerDelegate <NSObject>
-- (void)GameViewControllerDidEnd: (GameViewController *)controller;
-@end
-
 @interface GameViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
 
 #pragma mark
-#pragma mark Setup
-@property (nonatomic, weak) id <GameViewControllerDelegate> delegate;
+#pragma mark Setup Grund-Elemente
 @property (nonatomic, retain) Gamedata *gamedata;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -36,7 +31,7 @@ typedef enum {StateOne, StateTwo} Button;
 - (IBAction)endGame:(id)sender;
 
 #pragma mark
-#pragma mark Eingabe
+#pragma mark Eingabe-Elemente
 
 @property (weak, nonatomic) IBOutlet UITextField *vorneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *hintenTextField;
@@ -46,7 +41,7 @@ typedef enum {StateOne, StateTwo} Button;
 - (IBAction)pushedButton:(UIButton*)sender;
 
 #pragma mark
-#pragma mark Highscores
+#pragma mark Highscores-Labels
 
 @property (weak, nonatomic) IBOutlet UILabel *easyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mediumLabel;

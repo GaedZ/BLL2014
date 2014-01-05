@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CustomNSObject.h"
+#import "NSNumber+Numberchecker.h"
 
-
-@interface Settings : CustomNSObject
+@interface Settings : NSObject
 
 @property(nonatomic,readwrite) Difficulty difficulty;
 @property(nonatomic,readwrite) Mode mode;

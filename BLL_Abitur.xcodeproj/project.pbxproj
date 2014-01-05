@@ -26,15 +26,15 @@
 		5672463118731967000BB7F9 /* Computerplays.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672461F18731967000BB7F9 /* Computerplays.m */; };
 		5672463218731967000BB7F9 /* DetailLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462118731967000BB7F9 /* DetailLoadViewController.m */; };
 		5672463318731967000BB7F9 /* Gamedata.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462318731967000BB7F9 /* Gamedata.m */; };
-		5672463418731967000BB7F9 /* Highscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462618731967000BB7F9 /* Highscore.m */; };
 		5672463518731967000BB7F9 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462818731967000BB7F9 /* LoadViewController.m */; };
-		5672463618731967000BB7F9 /* Numberchecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462A18731967000BB7F9 /* Numberchecker.m */; };
 		5672463718731967000BB7F9 /* RulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462C18731967000BB7F9 /* RulesViewController.m */; };
 		5672463818731967000BB7F9 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672462E18731967000BB7F9 /* Settings.m */; };
 		5672463918731967000BB7F9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463018731967000BB7F9 /* SettingsViewController.m */; };
 		5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672463C18731AA9000BB7F9 /* GameViewController.m */; };
 		5672468A1875866D000BB7F9 /* GamingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246891875866D000BB7F9 /* GamingInfo.m */; };
-		567246911875CBDC000BB7F9 /* CustomNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 567246901875CBDC000BB7F9 /* CustomNSObject.m */; };
+		5672469418785CF0000BB7F9 /* Highscores.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672469318785CF0000BB7F9 /* Highscores.m */; };
+		5672469718785D3C000BB7F9 /* HighscoresForMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5672469618785D3C000BB7F9 /* HighscoresForMode.m */; };
+		56A854CB187873B70019CF9D /* NSNumber+Numberchecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A854CA187873B70019CF9D /* NSNumber+Numberchecker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		567245D518731432000BB7F9 /* BLL_Abitur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BLL_Abitur.app; path = "/Users/Georg/Documents/XCode Projects/Projects/BLL_Abitur/build/Debug-iphoneos/BLL_Abitur.app"; sourceTree = "<absolute>"; };
 		567245D818731432000BB7F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		567245DA18731432000BB7F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		567245DC18731432000BB7F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -59,7 +58,6 @@
 		567245E718731433000BB7F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		567245E818731433000BB7F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		567245EB18731433000BB7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainR4.storyboard; sourceTree = "<group>"; };
-		567245F618731433000BB7F9 /* BLL_AbiturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BLL_AbiturTests.xctest; path = "/Users/Georg/Documents/XCode Projects/Projects/BLL_Abitur/build/Debug-iphoneos/BLL_AbiturTests.xctest"; sourceTree = "<absolute>"; };
 		567245F718731433000BB7F9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		567245FF18731433000BB7F9 /* BLL_AbiturTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLL_AbiturTests-Info.plist"; sourceTree = "<group>"; };
 		5672460118731433000BB7F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -77,12 +75,8 @@
 		5672462218731967000BB7F9 /* Gamedata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gamedata.h; sourceTree = "<group>"; };
 		5672462318731967000BB7F9 /* Gamedata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gamedata.m; sourceTree = "<group>"; };
 		5672462418731967000BB7F9 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		5672462518731967000BB7F9 /* Highscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highscore.h; sourceTree = "<group>"; };
-		5672462618731967000BB7F9 /* Highscore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highscore.m; sourceTree = "<group>"; };
 		5672462718731967000BB7F9 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
 		5672462818731967000BB7F9 /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
-		5672462918731967000BB7F9 /* Numberchecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Numberchecker.h; sourceTree = "<group>"; };
-		5672462A18731967000BB7F9 /* Numberchecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Numberchecker.m; sourceTree = "<group>"; };
 		5672462B18731967000BB7F9 /* RulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesViewController.h; sourceTree = "<group>"; };
 		5672462C18731967000BB7F9 /* RulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesViewController.m; sourceTree = "<group>"; };
 		5672462D18731967000BB7F9 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -92,8 +86,14 @@
 		5672463C18731AA9000BB7F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		567246881875866D000BB7F9 /* GamingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamingInfo.h; sourceTree = "<group>"; };
 		567246891875866D000BB7F9 /* GamingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamingInfo.m; sourceTree = "<group>"; };
-		5672468F1875CBDC000BB7F9 /* CustomNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNSObject.h; sourceTree = "<group>"; };
-		567246901875CBDC000BB7F9 /* CustomNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNSObject.m; sourceTree = "<group>"; };
+		5672469218785CF0000BB7F9 /* Highscores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highscores.h; sourceTree = "<group>"; };
+		5672469318785CF0000BB7F9 /* Highscores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highscores.m; sourceTree = "<group>"; };
+		5672469518785D3C000BB7F9 /* HighscoresForMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresForMode.h; sourceTree = "<group>"; };
+		5672469618785D3C000BB7F9 /* HighscoresForMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresForMode.m; sourceTree = "<group>"; };
+		56A854C718786FE80019CF9D /* BLL_Abitur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLL_Abitur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A854C818786FE80019CF9D /* BLL_AbiturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLL_AbiturTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A854C9187873B70019CF9D /* NSNumber+Numberchecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Numberchecker.h"; sourceTree = "<group>"; };
+		56A854CA187873B70019CF9D /* NSNumber+Numberchecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Numberchecker.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +126,8 @@
 				567245DE18731432000BB7F9 /* BLL_Abitur */,
 				567245FD18731433000BB7F9 /* BLL_AbiturTests */,
 				567245D718731432000BB7F9 /* Frameworks */,
+				56A854C718786FE80019CF9D /* BLL_Abitur.app */,
+				56A854C818786FE80019CF9D /* BLL_AbiturTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,7 +148,7 @@
 				5672460D1873146A000BB7F9 /* Images.xcassets */,
 				5672463B187319CC000BB7F9 /* Model */,
 				5672461D18731920000BB7F9 /* View */,
-				5672463A187319A8000BB7F9 /* Control */,
+				5672463A187319A8000BB7F9 /* Controller */,
 				567245E718731433000BB7F9 /* AppDelegate.h */,
 				567245E818731433000BB7F9 /* AppDelegate.m */,
 				567245DF18731433000BB7F9 /* Supporting Files */,
@@ -192,7 +194,7 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		5672463A187319A8000BB7F9 /* Control */ = {
+		5672463A187319A8000BB7F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5672462418731967000BB7F9 /* GameViewController.h */,
@@ -210,7 +212,7 @@
 				5672462B18731967000BB7F9 /* RulesViewController.h */,
 				5672462C18731967000BB7F9 /* RulesViewController.m */,
 			);
-			name = Control;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		5672463B187319CC000BB7F9 /* Model */ = {
@@ -225,10 +227,7 @@
 		5672468B1875868F000BB7F9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				5672468F1875CBDC000BB7F9 /* CustomNSObject.h */,
-				567246901875CBDC000BB7F9 /* CustomNSObject.m */,
-				5672462518731967000BB7F9 /* Highscore.h */,
-				5672462618731967000BB7F9 /* Highscore.m */,
+				5672469818785D51000BB7F9 /* Highscores */,
 				5672468D187586FF000BB7F9 /* Gamedata */,
 			);
 			name = Data;
@@ -239,8 +238,8 @@
 			children = (
 				5672461E18731967000BB7F9 /* Computerplays.h */,
 				5672461F18731967000BB7F9 /* Computerplays.m */,
-				5672462918731967000BB7F9 /* Numberchecker.h */,
-				5672462A18731967000BB7F9 /* Numberchecker.m */,
+				56A854C9187873B70019CF9D /* NSNumber+Numberchecker.h */,
+				56A854CA187873B70019CF9D /* NSNumber+Numberchecker.m */,
 			);
 			name = Action;
 			sourceTree = "<group>";
@@ -266,6 +265,25 @@
 			name = Subdata;
 			sourceTree = "<group>";
 		};
+		5672469818785D51000BB7F9 /* Highscores */ = {
+			isa = PBXGroup;
+			children = (
+				5672469218785CF0000BB7F9 /* Highscores.h */,
+				5672469318785CF0000BB7F9 /* Highscores.m */,
+				5672469918785D61000BB7F9 /* Subdata */,
+			);
+			name = Highscores;
+			sourceTree = "<group>";
+		};
+		5672469918785D61000BB7F9 /* Subdata */ = {
+			isa = PBXGroup;
+			children = (
+				5672469518785D3C000BB7F9 /* HighscoresForMode.h */,
+				5672469618785D3C000BB7F9 /* HighscoresForMode.m */,
+			);
+			name = Subdata;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,7 +301,7 @@
 			);
 			name = BLL_Abitur;
 			productName = BLL_Abitur;
-			productReference = 567245D518731432000BB7F9 /* BLL_Abitur.app */;
+			productReference = 56A854C718786FE80019CF9D /* BLL_Abitur.app */;
 			productType = "com.apple.product-type.application";
 		};
 		567245F518731433000BB7F9 /* BLL_AbiturTests */ = {
@@ -301,7 +319,7 @@
 			);
 			name = BLL_AbiturTests;
 			productName = BLL_AbiturTests;
-			productReference = 567245F618731433000BB7F9 /* BLL_AbiturTests.xctest */;
+			productReference = 56A854C818786FE80019CF9D /* BLL_AbiturTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -365,20 +383,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				567245E918731433000BB7F9 /* AppDelegate.m in Sources */,
-				5672463618731967000BB7F9 /* Numberchecker.m in Sources */,
 				5672463818731967000BB7F9 /* Settings.m in Sources */,
 				5672463318731967000BB7F9 /* Gamedata.m in Sources */,
 				567245E518731433000BB7F9 /* main.m in Sources */,
 				5672463118731967000BB7F9 /* Computerplays.m in Sources */,
+				5672469418785CF0000BB7F9 /* Highscores.m in Sources */,
 				5672468A1875866D000BB7F9 /* GamingInfo.m in Sources */,
-				5672463418731967000BB7F9 /* Highscore.m in Sources */,
 				5672461118731549000BB7F9 /* MenuViewController.m in Sources */,
 				5672461818731621000BB7F9 /* CreditsViewController.m in Sources */,
+				5672469718785D3C000BB7F9 /* HighscoresForMode.m in Sources */,
 				5672463218731967000BB7F9 /* DetailLoadViewController.m in Sources */,
+				56A854CB187873B70019CF9D /* NSNumber+Numberchecker.m in Sources */,
 				5672463D18731AA9000BB7F9 /* GameViewController.m in Sources */,
 				5672463518731967000BB7F9 /* LoadViewController.m in Sources */,
 				5672463718731967000BB7F9 /* RulesViewController.m in Sources */,
-				567246911875CBDC000BB7F9 /* CustomNSObject.m in Sources */,
 				5672463918731967000BB7F9 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +610,7 @@
 				5672460918731433000BB7F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5672460A18731433000BB7F9 /* Build configuration list for PBXNativeTarget "BLL_AbiturTests" */ = {
 			isa = XCConfigurationList;
@@ -600,6 +619,7 @@
 				5672460C18731433000BB7F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

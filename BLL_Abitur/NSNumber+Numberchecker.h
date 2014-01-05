@@ -1,14 +1,19 @@
 //
-//  CustomNSObject.h
+//  NSNumber+Numberchecker.h
 //  BLL_Abitur
 //
-//  Created by Georg Zänker on 02.01.14.
+//  Created by Georg Zänker on 04.01.14.
 //  Copyright (c) 2014 Georg Zänker. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#pragma mark Konstanten Typedefs
+typedef enum{
+    PvP = 0,
+    Easy,
+    Medium,
+    Hard
+}Difficulty;
 
 typedef unsigned long long int int64;
 typedef unsigned long int int32;
@@ -19,16 +24,16 @@ typedef enum{
     Power3,
     Power4
 }Mode;
-typedef enum{
-    PvP = 0,
-    Easy,
-    Medium,
-    Hard
-}Difficulty;
+
 typedef enum {SCORER, WINNER} Perspective;
 
-#pragma mark
+@interface NSNumber (Numberchecker)
 
-@interface CustomNSObject : NSObject
++ (BOOL)isNumber:(NSNumber*)number forMode:(Mode)currentMode;
+
++ (BOOL)isSquare:(int64)x;
++ (BOOL)isCubic:(int64)x;
++ (BOOL)isPower4:(int64)x;
+
 
 @end

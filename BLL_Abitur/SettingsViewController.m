@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "Highscores.h"
 
 @interface SettingsViewController ()
 
@@ -51,6 +52,7 @@
     return self;
 }
 
+# pragma mark
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -69,6 +71,7 @@
 }
 
 #pragma mark
+#pragma mark Setup Switch Behaviour
 
 - (IBAction)Schwierigkeit:(UISwitch*)sender
 {
@@ -123,12 +126,21 @@
     }
 }
 
+#pragma mark
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 2 && indexPath.row == 2) {
-        [[[UIAlertView alloc]initWithTitle:@"Highscore" message:@"Test" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    if ([[tableView cellForRowAtIndexPath:indexPath].reuseIdentifier isEqualToString:@"ResetScoreCell"] )
+    {
+        [Highscores resetHighscores];
+        [[[UIAlertView alloc]initWithTitle:@"Alle Highscores wurden zurückgesetzt"
+                                   message:nil
+                                  delegate:nil
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles: nil] show];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
     }
 }
 @end

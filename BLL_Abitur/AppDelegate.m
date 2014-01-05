@@ -7,23 +7,25 @@
 //
 
 #import "AppDelegate.h"
-#import "Highscore.h"
+#import "Highscores.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ListOfGames"] == nil) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"ListOfGames"] == nil) {
         NSMutableDictionary *list = [NSMutableDictionary new];
-        [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"ListOfGames"];
+        [defaults setObject:list forKey:@"ListOfGames"];
     }
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Highscores"] == nil) {
-//        Highscore *highscore = [[Highscore alloc] initDefault];
-//        [[NSUserDefaults standardUserDefaults] setObject:highscore forKey:@"Highscores"];
-//    }
+    if ([defaults objectForKey:@"Highscores"] == nil) {
+        Highscores *highscores = [[Highscores alloc] initDefault];
+        NSData *encodedData     = [NSKeyedArchiver archivedDataWithRootObject:highscores];
+        [defaults setObject:encodedData forKey:@"Highscores"];
+    }
+    [defaults synchronize];
     
     CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-    
     if (iOSDeviceScreenSize.height == 568)
     {   // iPhone 5 and iPod Touch 5th generation: 4 inch screen
         // Instantiate a new storyboard object using the storyboard file named MainStoryboardR4
