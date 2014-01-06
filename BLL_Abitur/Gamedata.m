@@ -54,12 +54,9 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *list     = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
-
     NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:self];
     [list setObject:encodedData forKey:key];
     [defaults setObject:list forKey:@"ListOfGames"];
-    
-//    [defaults setObject:encodedData forKey:key]; //???????????????
     [defaults synchronize];
 }
 - (void)deleteData {

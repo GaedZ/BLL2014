@@ -124,6 +124,7 @@
 }
 
 - (IBAction)endGame:(UIButton*)sender{
+    
     if (self.gamedata.settings.saveOn && self.gamedata.gamingInfo.turn != 0)
     {
         if (self.gamedata.settings.automaticSaveOn) {
@@ -146,7 +147,6 @@
         [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
         
     }
-    self.gamedata = nil;
 }
 
 #pragma mark

@@ -218,7 +218,7 @@
 		5672463B187319CC000BB7F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5672468C187586B3000BB7F9 /* Action */,
+				5672468C187586B3000BB7F9 /* Mathe */,
 				5672468B1875868F000BB7F9 /* Data */,
 			);
 			name = Model;
@@ -233,7 +233,7 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
-		5672468C187586B3000BB7F9 /* Action */ = {
+		5672468C187586B3000BB7F9 /* Mathe */ = {
 			isa = PBXGroup;
 			children = (
 				5672461E18731967000BB7F9 /* Computerplays.h */,
@@ -241,7 +241,7 @@
 				56A854C9187873B70019CF9D /* NSNumber+Numberchecker.h */,
 				56A854CA187873B70019CF9D /* NSNumber+Numberchecker.m */,
 			);
-			name = Action;
+			name = Mathe;
 			sourceTree = "<group>";
 		};
 		5672468D187586FF000BB7F9 /* Gamedata */ = {
