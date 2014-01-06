@@ -29,7 +29,7 @@ typedef enum {SCORER, WINNER} Perspective;
 
 @interface NSNumber (Numberchecker)
 
-+ (BOOL)isNumber:(NSNumber*)number forMode:(Mode)currentMode;
++ (BOOL)isNumber:(int64)number forMode:(Mode)currentMode;
 
 + (BOOL)isSquare:(int64)x;
 + (BOOL)isCubic:(int64)x;

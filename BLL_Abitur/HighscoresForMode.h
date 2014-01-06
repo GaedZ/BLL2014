@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Settings.h"
 
 @interface HighscoresForMode : NSObject
 
@@ -15,5 +16,7 @@
 @property (nonatomic) NSNumber *hardScore;
 
 -(id)initDefault;
+
++ (void)saveHighscore:(int)score forDifficulty:(Mode)mode;
 
 @end

@@ -9,10 +9,6 @@
 #import "SettingsViewController.h"
 #import "Highscores.h"
 
-@interface SettingsViewController ()
-
-@end
-
 @implementation SettingsViewController
 {
     Gamedata *gamedata;

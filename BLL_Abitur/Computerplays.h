@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Settings.h"
 
-typedef enum {VorneP, HintenP} Position;
+typedef enum {Vorne, Hinten} Position;
 
 @interface Computerplays : NSObject
 

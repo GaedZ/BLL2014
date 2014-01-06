@@ -25,8 +25,8 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        self.gamingInfo = [decoder decodeObjectForKey:@"GamingInfo"];
-        self.settings = [decoder decodeObjectForKey:    @"Settings"];
+        self.gamingInfo = [decoder decodeObjectForKey: @"GamingInfo"];
+        self.settings = [decoder decodeObjectForKey: @"Settings"];
         self.pointer = [decoder decodeObjectForKey: @"Pointer"];
     }
     return self;
@@ -59,7 +59,7 @@
     [list setObject:encodedData forKey:key];
     [defaults setObject:list forKey:@"ListOfGames"];
     
-    [defaults setObject:encodedData forKey:key]; //???????????????
+//    [defaults setObject:encodedData forKey:key]; //???????????????
     [defaults synchronize];
 }
 - (void)deleteData {

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "HighscoresForMode.h"
-#import "Settings.h"
 
 @interface Highscores : NSObject <NSCoding>
 
@@ -23,8 +22,9 @@
 
 #pragma mark
 #pragma mark Laden/Speichern
+
 + (HighscoresForMode *)loadHighscoresForMode:(Mode)mode;
-- (void)saveHighscore:(int)score withSettings:(Settings*)settings;
++ (void)saveHighscore:(int)score withSettings:(Settings*)settings;
 + (void)resetHighscores;
 
 @end

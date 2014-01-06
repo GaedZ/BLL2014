@@ -27,15 +27,15 @@
 }
 
 #pragma mark
-+(BOOL)isNumber:(NSNumber*)number forMode:(Mode)currentMode
++(BOOL)isNumber:(int64)number forMode:(Mode)currentMode
 {
     switch (currentMode) {
         case Power2:
-            return [self isSquare:[number unsignedLongLongValue]];
+            return [self isSquare:number];
         case Power3:
-            return [self isCubic:[number unsignedLongLongValue]];
+            return [self isCubic:number];
         case Power4:
-            return [self isPower4:[number unsignedLongLongValue]];
+            return [self isPower4:number];
         default:
             return false;
             break;

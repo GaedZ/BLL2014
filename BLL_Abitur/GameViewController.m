@@ -15,23 +15,22 @@
 # pragma mark
 -(void)viewDidLoad {
     
-    /*Set up Highscore Labels*/ {
-        HighscoresForMode *highscoresForMode = [Highscores loadHighscoresForMode:self.gamedata.settings.mode];
-        
-        self.easyLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.easyScore];
-        self.mediumLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.mediumScore];
-        self.hardLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.hardScore];
-    }
+    /*Update Highscore Labels*/
+    [self updateHighscoreLabels];
 
     //Set up numberLabel and statusLabel
+    {
     [self.numberLabel setText:@""];
     if (self.gamedata.gamingInfo.number != nil)
         [self.numberLabel setText:self.gamedata.gamingInfo.number];
+    
     if ((self.gamedata.gamingInfo.turn % 2 == 0) && self.gamedata.settings.difficulty == PvP)
         [self.statusLabel setText:@"Scorer am Zug"];
     else if ((self.gamedata.gamingInfo.turn % 2 == 1) && self.gamedata.settings.difficulty == PvP)
         [self.statusLabel setText:@"Winner am Zug"];
-            
+    else if (self.gamedata.settings.difficulty != PvP)
+        [self.statusLabel setText:@"Du bist dran!"];
+    }
 
     //Set up both TextFields
     {
@@ -57,7 +56,7 @@
 }
 
 #pragma mark
-#pragma mark The Game
+#pragma mark Actions
 
 - (IBAction)pushedButton:(UIButton*)sender{
     switch (sender.tag) {
@@ -89,17 +88,17 @@
                 {
                     [self putPlayersNumber];
                     
-                    if ([NSNumber isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode])
+                    if ([NSNumber isNumber:[self.numberLabel.text longLongValue] forMode:self.gamedata.settings.mode])
                     {
                         [self showEndbox];
                     }
 
                     
-                    if (self.gamedata.settings.difficulty != PvP && ![NSNumber isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode]){
+                    if (self.gamedata.settings.difficulty != PvP && ![NSNumber isNumber:[self.numberLabel.text longLongValue] forMode:self.gamedata.settings.mode]){
                     [self putComputersNumber];
                         
                     
-                        if ([NSNumber isNumber:[NSNumber numberWithUnsignedLongLong:[self.numberLabel.text longLongValue]] forMode:self.gamedata.settings.mode])
+                        if ([NSNumber isNumber:[self.numberLabel.text longLongValue] forMode:self.gamedata.settings.mode])
                         {
                         [self showEndbox];
                         }
@@ -123,6 +122,35 @@
 
     }
 }
+
+- (IBAction)endGame:(UIButton*)sender{
+    if (self.gamedata.settings.saveOn && self.gamedata.gamingInfo.turn != 0)
+    {
+        if (self.gamedata.settings.automaticSaveOn) {
+            
+            [[self preparedData] saveDataforKey:[NSString stringWithFormat:@"Spiel vom %@", [self stringForDate:[self preparedData].gamingInfo.lastSaved]]];
+            
+            //Zurück zum Hauptmenü
+            NSArray *VCs = [self.navigationController viewControllers];
+            [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
+        }
+        else
+        {
+            [self showSavebox];
+        }
+    }
+    else
+    {
+        //Zurück zum Hauptmenü
+        NSArray *VCs = [self.navigationController viewControllers];
+        [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
+        
+    }
+    self.gamedata = nil;
+}
+
+#pragma mark
+#pragma mark Making a turn
 - (void)putPlayersNumber{
     if (self.vorneTextField.enabled)
         [self.numberLabel setText:[self.vorneTextField.text stringByAppendingString:self.numberLabel.text]];
@@ -145,7 +173,11 @@
     self.statusLabel.text = @"Du bist dran!";
     self.gamedata.gamingInfo.turn++;
 }
-- (void)prepareDefaultState{
+
+#pragma mark
+#pragma mark Preparing, Updating and Reseting
+
+- (void)prepareDefaultState {
     [self.hintenTextField resignFirstResponder];
     [self.vorneTextField resignFirstResponder];
     [self.ActionButtons[0] setTitle: @" î Vorne" forState:UIControlStateNormal];
@@ -157,49 +189,30 @@
     for (UIButton *buItem in self.ActionButtons) {
         buItem.tag = StateOne;}
 }
-- (void)resetField{
-    self.gamedata.gamingInfo.turn = 0;
-    self.numberLabel.text = @"";
-    self.statusLabel.text = @"Scorer am Zug";
-}
-
-#pragma mark
-#pragma mark End Game / Save Game
-
-- (IBAction)endGame:(UIButton*)sender{
-    if (self.gamedata.settings.saveOn && self.gamedata.gamingInfo.turn != 0)
-    {
-        if (self.gamedata.settings.automaticSaveOn) {
-    
-            [[self preparedData] saveDataforKey:[NSString stringWithFormat:@"Spiel vom %@", [self stringForDate:[self preparedData].gamingInfo.lastSaved]]];
-            
-            //Zurück zum Hauptmenü
-            NSArray *VCs = [self.navigationController viewControllers];
-            [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
-        }
-        else
-        {
-            [self showSavebox];
-        }
-    }
-    else
-    {
-        //Zurück zum Hauptmenü
-        NSArray *VCs = [self.navigationController viewControllers];
-        [self.navigationController popToViewController:[VCs objectAtIndex:([VCs count] - 3)] animated:YES];
-  
-    }
-    self.gamedata = nil;
-}
-
-- (Gamedata*)preparedData
-{
+- (Gamedata*)preparedData {
     Gamedata *preparedData = [[Gamedata alloc]initDefault];
     preparedData.settings = self.gamedata.settings;
     preparedData.gamingInfo.number = self.numberLabel.text;
     preparedData.gamingInfo.turn = self.gamedata.gamingInfo.turn;
     preparedData.gamingInfo.lastSaved = [NSDate date];
     return preparedData;
+}
+- (void)updateHighscoreLabels {
+    HighscoresForMode *highscoresForMode = [Highscores loadHighscoresForMode:self.gamedata.settings.mode];
+    
+    self.easyLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.easyScore];
+    self.mediumLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.mediumScore];
+    self.hardLabel.text = [NSString stringWithFormat:@"%@", highscoresForMode.hardScore];
+}
+- (void)resetField {
+    self.gamedata.gamingInfo.turn = 0;
+    self.numberLabel.text = @"";
+    if (self.gamedata.settings.difficulty == PvP)
+        self.statusLabel.text = @"Scorer am Zug";
+    else if (self.gamedata.settings.difficulty != PvP && self.gamedata.settings.perspective == SCORER)
+        self.statusLabel.text = @"Du bist dran!";
+    else if (self.gamedata.settings.difficulty != PvP && self.gamedata.settings.perspective == WINNER)
+        self.statusLabel.text = @"Computer denkt nach";
 }
 
 #pragma mark
@@ -233,11 +246,15 @@
     {
         UIAlertView *Endbox = [[UIAlertView alloc]
                                initWithTitle: @"Spiel vorbei"
-                               message: @"Der Winner hat das Spiel beendet \n Score: "
+                               message: [NSString stringWithFormat:@"Score: %i", self.gamedata.gamingInfo.turn]
                                delegate: self
                                cancelButtonTitle: nil
                                otherButtonTitles: @"Spiel beenden", @"Neues Spiel", nil];
         [Endbox show];
+    }
+    if (perspective == SCORER && !isPvP) {
+        [Highscores saveHighscore:self.gamedata.gamingInfo.turn withSettings:self.gamedata.settings];
+        [self updateHighscoreLabels];
     }
 }
 - (void)showErrorbox{
@@ -272,21 +289,9 @@
     }
     else if ([alertView.title isEqualToString:@"Speichern"])
     {
-        if (buttonIndex == 0) {
-        }
-        else if(buttonIndex == 1)
-        {
-            while (YES) {
-                Gamedata *gameData = [Gamedata loadGamedataWithKey:[alertView textFieldAtIndex:0].text];
-                if (gameData != nil) {
-                    [[self preparedData] saveDataforKey:[alertView textFieldAtIndex:0].text];
-                    break;
-                } else {
-//                    [[[UIAlertView alloc] initWithTitle:<#(NSString *)#> message:<#(NSString *)#> delegate:<#(id)#> cancelButtonTitle:<#(NSString *)#> otherButtonTitles:<#(NSString *), ...#>, nil] show];
-                }
-            }
-            
-        }
+#pragma mark Save Game
+        if(buttonIndex == 1)
+            [[self preparedData] saveDataforKey:[alertView textFieldAtIndex:0].text];
        
         //Zurück zum Hauptmenü
         NSArray *VCs = [self.navigationController viewControllers];

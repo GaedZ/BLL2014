@@ -40,5 +40,7 @@
     [encoder encodeObject:self.hardScore forKey: @"Hard"];
 }
 
+#pragma mark
+#pragma mark Laden/Speichern
 
 @end

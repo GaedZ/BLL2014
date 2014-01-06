@@ -62,8 +62,8 @@
     [defaults setObject:encodedData forKey:@"Highscores"];
 }
 
-//- (void)saveHighscore;
-//{
++ (void)saveHighscore:(int)score withSettings:(Settings *)settings
+{
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSData *encodedData = [defaults objectForKey:@"Highscores"];
 //
@@ -84,6 +84,6 @@
 //    [list removeObjectForKey:self.pointer];
 //    [defaults setObject:list forKey:@"ListOfGames"];
 //    [defaults synchronize];
-//}
+}
 
 @end
