@@ -21,6 +21,7 @@
     switch (settings.difficulty) {
         case Easy:
             number = [self makeRandomMoveUsingTheNumber: number];
+            break;
         case Medium:
             {
             srand (time(NULL));
@@ -29,7 +30,8 @@
                 number = [self makeRandomMoveUsingTheNumber: number];
             else
                 number = [self makeSkilledMoveUsingTheNumber:number withSettings:settings];
-        }
+            }
+            break;
         case Hard:
             number = [self makeSkilledMoveUsingTheNumber:number withSettings:settings];
             break;
@@ -55,14 +57,17 @@
 + (NSString*)makeSkilledMoveUsingTheNumber:(NSString*)number withSettings:(Settings*)settings
 {
     if (settings.perspective == SCORER)
-        ;
+        return [self makeSkilledMoveAsScorerUsingTheNumber:number forMode:settings.mode];
     switch (settings.mode) {
         case Power2:
             return [self makeSkilledMoveAsWinnerForPower2UsingTheNumber:number];
+            break;
         case Power3:
             return [self makeSkilledMoveAsWinnerForPower3UsingTheNumber:number];
+            break;
         case Power4:
             return [self makeSkilledMoveAsWinnerForPower4UsingTheNumber:number];
+            break;
         default:
             break;
     }
@@ -131,49 +136,107 @@
 }
 #pragma mark
 
-//+ (NSString*)makeSkilledMoveAsScorerUsingTheNumber:(NSString*)number forMode:(Mode)mode {
-//    NSString *tempNumber;
-//    
-//    for (int i = 0; i < 10; i++) {
-//        tempNumber = [number stringByAppendingString:[NSString stringWithFormat:@"%i",i]];
-//        if ([NSNumber isNumber:[tempNumber longLongValue] forMode:mode])
-//            return tempNumber;
-//    }
-//    for (int i = 0; i < 10; i++) {
-//        tempNumber = [[NSString stringWithFormat:@"%i",i] stringByAppendingString:number];
-//        if ([NSNumber isNumber:[tempNumber longLongValue] forMode:mode])
-//            return tempNumber;
-//    }
-//    
-//    
-//    
-//    Position randomPosition  = rand() %  2;
-//    if (randomPosition == Vorne) {
-//        <#statements#>
-//    }
-//    else if (randomPosition == Hinten)
-//    {
-//        
-//    }
-//    
-//    return nil;
-//}
-//+ (NSString*)case1WithNumber:(NSString*)number
-//{
-//    int randomA;
-//    int randomB;
-//    NSString *tempNumberA;
-//    NSString *tempNumberB;
-//    const int maxTest = 12;
-//    
-//    for (int i = 0; i <= maxTest; i++) {
-//        randomB = rand() % 10;
-//        tempNumberB = [[NSString stringWithFormat:@"%i",randomB] stringByAppendingString:number];
-//        for (int i = 1; i < (); <#increment#>) {
-//            <#statements#>
-//        }
-//    }
-//    return nil;
-//}
++ (NSString*)makeSkilledMoveAsScorerUsingTheNumber:(NSString*)number forMode:(Mode)mode {
+    
+    if ([self tryFirstTurnWinWithNumber:number forMode:mode] != nil) {
+        return [self tryFirstTurnWinWithNumber:number forMode:mode];
+    }
+    
+    Position randomPosition  = rand() %  2;
+    if (randomPosition == Vorne) {
+        if ([self case1WithNumber:number forMode:mode] == nil) {
+            if ([self case2WithNumber:number forMode:mode] == nil)
+                return [number stringByAppendingString:[NSString stringWithFormat:@"%i", (rand() % 10)]];
+            else
+                return [self case2WithNumber:number forMode:mode];
+        }
+        else {
+            return [self case1WithNumber:number forMode:mode];
+        }
+    }
+    else if (randomPosition == Hinten)
+    {
+        if ([self case2WithNumber:number forMode:mode] == nil) {
+            if ([self case1WithNumber:number forMode:mode] == nil)
+                return [number stringByAppendingString:[NSString stringWithFormat:@"%i", (rand() % 10)]];
+            else
+                return [self case1WithNumber:number forMode:mode];
+        }
+        else {
+            return [self case2WithNumber:number forMode:mode];
+        }
+    }
+    
+    return nil;
+}
+#pragma mark
+
++ (NSString*)tryFirstTurnWinWithNumber:(NSString*)number forMode:(Mode)mode {
+    NSString *tempNumber;
+    
+    for (int i = 0; i < 10; i++) {
+        tempNumber = [number stringByAppendingString:[NSString stringWithFormat:@"%i",i]];
+        if ([NSNumber isNumber:[tempNumber longLongValue] forMode:mode])
+            return tempNumber;
+    }
+    for (int i = 0; i < 10; i++) {
+        tempNumber = [[NSString stringWithFormat:@"%i",i] stringByAppendingString:number];
+        if ([NSNumber isNumber:[tempNumber longLongValue] forMode:mode])
+            return tempNumber;
+    }
+    return nil;
+}
++ (NSString*)case1WithNumber:(NSString*)number forMode:(Mode)mode
+{
+    int randomS;
+    int randomW;
+    NSString *tempNumberS;
+    NSString *tempNumberW;
+    const int maxTest = 12;
+    
+    for (int s = 0; s <= maxTest; s++) {
+        randomW = rand() % 10;
+        tempNumberW = [[NSString stringWithFormat:@"%i",randomW] stringByAppendingString:number];
+        for (int w = 1; w < (2*maxTest); w++) {
+            if (w <= maxTest) {
+                randomS = rand() % 10;
+                tempNumberS = [tempNumberW stringByAppendingString:[NSString stringWithFormat:@"%i",randomS]];
+            }
+            else
+                tempNumberS = [[NSString stringWithFormat:@"%i",randomS] stringByAppendingString:tempNumberW];
+            
+            if ([self tryFirstTurnWinWithNumber:number forMode:mode] != nil) {
+                return tempNumberW;
+            }
+        }
+    }
+    return nil;
+}
++ (NSString*)case2WithNumber:(NSString*)number forMode:(Mode)mode
+{
+    int randomS;
+    int randomW;
+    NSString *tempNumberS;
+    NSString *tempNumberW;
+    const int maxTest = 12;
+    
+    for (int s = 0; s <= maxTest; s++) {
+        randomW = rand() % 10;
+        tempNumberW = [number stringByAppendingString:[NSString stringWithFormat:@"%i",randomW]];
+        for (int w = 1; w < (2*maxTest); w++) {
+            if (w <= maxTest) {
+                randomS = rand() % 10;
+                tempNumberS = [tempNumberW stringByAppendingString:[NSString stringWithFormat:@"%i",randomS]];
+            }
+            else
+                tempNumberS = [[NSString stringWithFormat:@"%i",randomS] stringByAppendingString:tempNumberW];
+            
+            if ([self tryFirstTurnWinWithNumber:number forMode:mode] != nil) {
+                return tempNumberW;
+            }
+        }
+    }
+    return nil;
+}
 
 @end

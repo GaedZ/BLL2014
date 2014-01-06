@@ -266,14 +266,14 @@
                                   otherButtonTitles: nil];
     [Errorbox show];
 }
-- (void)showFileDoesNotExistBox {
-    UIAlertView *FileDoesNotExistBox = [[UIAlertView alloc] initWithTitle:@"Achtung"
-                                                                  message:@"Ein Spielstand mit diesem Namen existiert bereits. Überschreiben?"
-                                                                 delegate:self
-                                                        cancelButtonTitle:nil
-                                                        otherButtonTitles:@"Ja",@"Nein", nil];
-    [FileDoesNotExistBox show];
-}
+//- (void)showFileDoesNotExistBox {
+//    UIAlertView *FileDoesNotExistBox = [[UIAlertView alloc] initWithTitle:@"Achtung"
+//                                                                  message:@"Ein Spielstand mit diesem Namen existiert bereits. Überschreiben?"
+//                                                                 delegate:self
+//                                                        cancelButtonTitle:nil
+//                                                        otherButtonTitles:@"Ja",@"Nein", nil];
+//    [FileDoesNotExistBox show];
+//}
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if ([alertView.title isEqualToString:@"Spiel vorbei"]) {
         if (buttonIndex == 0) {

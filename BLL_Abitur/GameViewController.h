@@ -47,5 +47,7 @@ typedef enum {StateOne, StateTwo} Button;
 @property (weak, nonatomic) IBOutlet UILabel *mediumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hardLabel;
 
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex;
+
 
 @end
