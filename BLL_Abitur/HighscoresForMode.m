@@ -43,4 +43,35 @@
 #pragma mark
 #pragma mark Laden/Speichern
 
++ (HighscoresForMode*)saveHighscore:(int)score forPower2withDifficulty:(Difficulty)difficulty inHighscoreForMode:(HighscoresForMode *)hSFM
+{
+    if (difficulty == Easy) {
+        hSFM.easyScore = [NSNumber numberWithInt:score]; return hSFM; }
+    if (difficulty == Medium) {
+        hSFM.mediumScore = [NSNumber numberWithInt:score]; return hSFM; }
+    if (difficulty == Hard) {
+        hSFM.hardScore = [NSNumber numberWithInt:score]; return hSFM; }
+    return Nil;
+}
++ (HighscoresForMode*)saveHighscore:(int)score forPower3withDifficulty:(Difficulty)difficulty inHighscoreForMode:(HighscoresForMode *)hSFM
+{
+    if (difficulty == Easy) {
+        hSFM.easyScore = [NSNumber numberWithInt:score]; return hSFM; }
+    if (difficulty == Medium) {
+        hSFM.mediumScore = [NSNumber numberWithInt:score]; return hSFM; }
+    if (difficulty == Hard) {
+        hSFM.hardScore = [NSNumber numberWithInt:score]; return hSFM; }
+    return Nil;
+}
++ (HighscoresForMode*)saveHighscore:(int)score forPower4withDifficulty:(Difficulty)difficulty inHighscoreForMode:(HighscoresForMode *)hSFM
+{
+    if (difficulty == Easy) {
+        hSFM.easyScore = [NSNumber numberWithInt:score]; return hSFM; }
+    if (difficulty == Medium) {
+        hSFM.mediumScore = [NSNumber numberWithInt:score]; return hSFM; }
+    if (difficulty == Hard) {
+        hSFM.hardScore = [NSNumber numberWithInt:score]; return hSFM; }
+    return Nil;
+}
+
 @end

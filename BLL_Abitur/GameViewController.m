@@ -253,7 +253,17 @@
         [Endbox show];
     }
     if (perspective == SCORER && !isPvP) {
-        [Highscores saveHighscore:self.gamedata.gamingInfo.turn withSettings:self.gamedata.settings];
+        NSNumber *actualHighscore;
+        if (self.gamedata.settings.difficulty == Easy)
+            actualHighscore = [Highscores loadHighscoresForMode:self.gamedata.settings.mode].easyScore;
+        if (self.gamedata.settings.difficulty == Medium)
+            actualHighscore = [Highscores loadHighscoresForMode:self.gamedata.settings.mode].mediumScore;
+        if (self.gamedata.settings.difficulty == Hard)
+            actualHighscore = [Highscores loadHighscoresForMode:self.gamedata.settings.mode].hardScore;
+        
+        if (self.gamedata.gamingInfo.turn > [actualHighscore integerValue]) {
+            [Highscores saveHighscore:self.gamedata.gamingInfo.turn withSettings:self.gamedata.settings];
+        }
         [self updateHighscoreLabels];
     }
 }
@@ -266,14 +276,6 @@
                                   otherButtonTitles: nil];
     [Errorbox show];
 }
-//- (void)showFileDoesNotExistBox {
-//    UIAlertView *FileDoesNotExistBox = [[UIAlertView alloc] initWithTitle:@"Achtung"
-//                                                                  message:@"Ein Spielstand mit diesem Namen existiert bereits. Überschreiben?"
-//                                                                 delegate:self
-//                                                        cancelButtonTitle:nil
-//                                                        otherButtonTitles:@"Ja",@"Nein", nil];
-//    [FileDoesNotExistBox show];
-//}
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if ([alertView.title isEqualToString:@"Spiel vorbei"]) {
         if (buttonIndex == 0) {
@@ -327,11 +329,11 @@
     [UIView setAnimationDuration:1.0];
     self.statusLabel.alpha = 0.0f;
     [UIView commitAnimations];
-    [NSTimer scheduledTimerWithTimeInterval:1.0
-                                     target:self
-                                   selector:@selector(setText)
-                                   userInfo:nil
-                                    repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:1.0
+//                                     target:self
+//                                   selector:@selector(setText)
+//                                   userInfo:nil
+//                                    repeats:NO];
 }
 - (void)showText{
     [UIView beginAnimations:@"fadeInText" context:NULL];

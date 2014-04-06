@@ -22,7 +22,26 @@
     return self;
 }
 - (void)viewDidLoad{
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    
+//#pragma mark Add Test Load entry
+//    
+//    {
+//    Gamedata *preparedData = [[Gamedata alloc] initDefault];
+//    preparedData.pointer = @"Test";
+//    
+//    preparedData.settings.perspective = SCORER;
+//    preparedData.settings.difficulty = Hard;
+//    preparedData.settings.mode = Power2;
+//    preparedData.settings.saveOn = true;
+//    preparedData.settings.automaticSaveOn = true;
+//    
+//    preparedData.gamingInfo.number = @"3476";
+//    preparedData.gamingInfo.turn = 4;
+//    preparedData.gamingInfo.lastSaved = [NSDate date];
+//    
+//    [preparedData saveDataforKey:preparedData.pointer];
+//    }
     
     // Edit Button
     self.navigationItem.rightBarButtonItem = self.editButtonItem;

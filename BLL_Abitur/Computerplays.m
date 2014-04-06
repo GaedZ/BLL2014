@@ -14,10 +14,25 @@
     Settings *ownSettings;
 }
 
-#pragma mark
-#pragma mark Öffentliche Methode
+#pragma mark Test Methods
+
+//+(NSString*)returnNumberForDemonstrationPurposesUsingTheNumber:(NSString *)number {
+//        if ([number isEqualToString:@""])
+//            return [number stringByAppendingString:@"3"];
+//        if ([number isEqualToString:@"34"])
+//            return [@"0" stringByAppendingString:number];
+//        if ([number isEqualToString:@"1034"])
+//            return [number stringByAppendingString:@"1"];
+//    return nil;
+//}
+//#pragma mark
+//#pragma mark Öffentliche Methode
 + (NSString*)playGameWithSettings:(Settings *)settings usingTheNumber:(NSString *)number
 {
+//    //Method for Demonstration purposes
+//    if (settings.difficulty == Easy && settings.perspective == WINNER && settings.mode == Power3)
+//        return [self returnNumberForDemonstrationPurposesUsingTheNumber:number];
+    
     switch (settings.difficulty) {
         case Easy:
             number = [self makeRandomMoveUsingTheNumber: number];
@@ -34,6 +49,8 @@
             break;
         case Hard:
             number = [self makeSkilledMoveUsingTheNumber:number withSettings:settings];
+            break;
+        default:
             break;
     }
     return number;
@@ -99,17 +116,29 @@
 }
 + (NSString*)makeSkilledMoveAsWinnerForPower3UsingTheNumber:(NSString*)number {
     //ANFANG
-    int w = 0;
-    int s = 0;
-    int64 tempNumber = [number longLongValue];
-        
-    while ([NSNumber isCubic:(tempNumber*10 + w)] || [NSNumber isCubic:(tempNumber*100 + w*10 + s)] || (s == 10)) {
-        w++; s = 0;
-        while (![NSNumber isCubic:(tempNumber*100 + w*10 + s)] && (s < 9))
-            s++;
+    NSString *tempNumberW;
+    NSString *tempNumberWS;
+    NSString *STempNumberW;
+    BOOL playerCouldPossiblyWin;
+    
+    for (int w = 0; w < 10; w++) {
+        tempNumberW = [number stringByAppendingString:[NSString stringWithFormat:@"%i", w]];
+        playerCouldPossiblyWin = NO;
+
+        for (int s = 0; s < 10; s++) {
+            tempNumberWS = [tempNumberW stringByAppendingString:[NSString stringWithFormat:@"%i", s]];
+            STempNumberW = [[NSString stringWithFormat:@"%i", s] stringByAppendingString:tempNumberW];
+            
+            if ([NSNumber isCubic:[tempNumberWS longLongValue]])
+                playerCouldPossiblyWin = YES;
+            if ([NSNumber isCubic:[STempNumberW longLongValue]])
+                playerCouldPossiblyWin = YES;
+        }
+        if (playerCouldPossiblyWin == NO && [NSNumber isCubic:[tempNumberW longLongValue]] == NO)
+            return tempNumberW;
+
     }
-        
-    return [number stringByAppendingString:[NSString stringWithFormat:@"%d", w]];
+    return @"";
     //ENDE
 }
 + (NSString*)makeSkilledMoveAsWinnerForPower4UsingTheNumber:(NSString*)number {
@@ -198,14 +227,13 @@
         randomW = rand() % 10;
         tempNumberW = [[NSString stringWithFormat:@"%i",randomW] stringByAppendingString:number];
         for (int w = 1; w < (2*maxTest); w++) {
-            if (w <= maxTest) {
-                randomS = rand() % 10;
+            randomS = rand() % 10;
+            if (w <= maxTest)
                 tempNumberS = [tempNumberW stringByAppendingString:[NSString stringWithFormat:@"%i",randomS]];
-            }
             else
                 tempNumberS = [[NSString stringWithFormat:@"%i",randomS] stringByAppendingString:tempNumberW];
             
-            if ([self tryFirstTurnWinWithNumber:number forMode:mode] != nil) {
+            if ([self tryFirstTurnWinWithNumber:tempNumberW forMode:mode] != nil) {
                 return tempNumberW;
             }
         }
@@ -224,14 +252,13 @@
         randomW = rand() % 10;
         tempNumberW = [number stringByAppendingString:[NSString stringWithFormat:@"%i",randomW]];
         for (int w = 1; w < (2*maxTest); w++) {
-            if (w <= maxTest) {
-                randomS = rand() % 10;
+            randomS = rand() % 10;
+            if (w <= maxTest)
                 tempNumberS = [tempNumberW stringByAppendingString:[NSString stringWithFormat:@"%i",randomS]];
-            }
             else
                 tempNumberS = [[NSString stringWithFormat:@"%i",randomS] stringByAppendingString:tempNumberW];
             
-            if ([self tryFirstTurnWinWithNumber:number forMode:mode] != nil) {
+            if ([self tryFirstTurnWinWithNumber:tempNumberW forMode:mode] != nil) {
                 return tempNumberW;
             }
         }

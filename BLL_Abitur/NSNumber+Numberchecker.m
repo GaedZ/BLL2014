@@ -32,10 +32,13 @@
     switch (currentMode) {
         case Power2:
             return [self isSquare:number];
+            break;
         case Power3:
             return [self isCubic:number];
+            break;
         case Power4:
             return [self isPower4:number];
+            break;
         default:
             return false;
             break;

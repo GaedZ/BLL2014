@@ -17,6 +17,8 @@
 
 -(id)initDefault;
 
-+ (void)saveHighscore:(int)score forDifficulty:(Mode)mode;
++ (HighscoresForMode*)saveHighscore:(int)score forPower2withDifficulty:(Difficulty)difficulty inHighscoreForMode:(HighscoresForMode*)hSFM;
++ (HighscoresForMode*)saveHighscore:(int)score forPower3withDifficulty:(Difficulty)difficulty inHighscoreForMode:(HighscoresForMode*)hSFM;
++ (HighscoresForMode*)saveHighscore:(int)score forPower4withDifficulty:(Difficulty)difficulty inHighscoreForMode:(HighscoresForMode*)hSFM;
 
 @end

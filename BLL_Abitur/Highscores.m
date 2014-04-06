@@ -54,7 +54,7 @@
     return nil;
 }
 
-+ (void) resetHighscores
++ (void)resetHighscores
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     Highscores *highscores = [[Highscores alloc] initDefault];
@@ -64,26 +64,23 @@
 
 + (void)saveHighscore:(int)score withSettings:(Settings *)settings
 {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSData *encodedData = [defaults objectForKey:@"Highscores"];
-//
-//    NSMutableDictionary *list     = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
-//    
-////    NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:self];
-////    [list setObject:encodedData forKey:key];
-////    [defaults setObject:list forKey:@"ListOfGames"];
-////    
-////    [defaults setObject:encodedData forKey:key];
-////    [defaults synchronize];dData forKey:key];
-////    [defaults synchronize];
-//}
-//- (void)deleteData {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSMutableDictionary *list = [[defaults objectForKey:@"ListOfGames"] mutableCopy];
-//    
-//    [list removeObjectForKey:self.pointer];
-//    [defaults setObject:list forKey:@"ListOfGames"];
-//    [defaults synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data     = [[defaults objectForKey:@"Highscores"] mutableCopy];
+    Highscores *scores = (Highscores *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+
+    if (settings.mode == Power2) {
+        scores.power2 = [HighscoresForMode saveHighscore:score forPower2withDifficulty:settings.difficulty inHighscoreForMode:(HighscoresForMode*)scores.power2];
+    }
+    if (settings.mode == Power3) {
+        scores.power3 = [HighscoresForMode saveHighscore:score forPower3withDifficulty:settings.difficulty inHighscoreForMode:(HighscoresForMode*)scores.power3];
+    }
+    if (settings.mode == Power4) {
+        scores.power4 = [HighscoresForMode saveHighscore:score forPower4withDifficulty:settings.difficulty inHighscoreForMode:(HighscoresForMode*)scores.power4];
+    }
+    
+    NSData *encodedData      = [NSKeyedArchiver archivedDataWithRootObject:scores];
+    [defaults setObject:encodedData forKey:@"Highscores"];
+    [defaults synchronize];
 }
 
 @end
